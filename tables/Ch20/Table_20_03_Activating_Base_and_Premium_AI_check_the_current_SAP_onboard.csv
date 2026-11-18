@@ -1,0 +1,5 @@
+﻿,Base,Premium
+Prerequisites,"The product licences (for the agent: the Process Insights and Intelligence package and a Collaboration Hub licence), onboarding completed, including the SAP BTP set-up for the Process Insights tenant","Everything Base needs, plus AI units"
+Administrator steps,"Accept the SAP AI terms once; in AI Services, activate the feature for a user group (self-service)",Buy AI units; raise a ticket in SAP for Me to add the Premium AI feature package; then activate Premium in AI Services for a user group
+What users get,"For the agent, an included monthly allowance of actions per workspace, with a warning near the limit",Use beyond the allowance; AI units are consumed
+Watch,Nothing switches to Premium by itself,Track AI unit consumption in SAP for Me

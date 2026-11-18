@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Building with SAP Signavio - companion file. Fictional company Velora Group SE. Import in SAP Signavio Process Manager: Explorer > Import > BPMN 2.0 XML. -->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Defs_Bill_customer" targetNamespace="http://velora.example/bpmn" exporter="building_with_signavio" exporterVersion="1.0">
+<collaboration id="C_Bill_customer">
+  <participant id="P_Bill_customer" name="Velora" processRef="Bill_customer"/>
+</collaboration>
+<process id="Bill_customer" name="Bill customer" isExecutable="false">
+  <documentation>L3 as-is with data objects and IT systems (Figure 6.4). 7.8% of invoices are corrected with PriceBook prices.</documentation>
+  <laneSet id="LS_Bill_customer">
+    <lane id="L_Bill_customer_0" name="Billing"><flowNodeRef>s</flowNodeRef><flowNodeRef>t2</flowNodeRef><flowNodeRef>g</flowNodeRef><flowNodeRef>t3</flowNodeRef><flowNodeRef>g2</flowNodeRef></lane>
+    <lane id="L_Bill_customer_1" name="SAP ECC"><flowNodeRef>t1</flowNodeRef><flowNodeRef>t4</flowNodeRef><flowNodeRef>e</flowNodeRef></lane>
+  </laneSet>
+  <startEvent id="s" name="Proof of delivery received"><outgoing>F_1</outgoing></startEvent>
+  <task id="t1" name="Create invoice"><documentation>IT system: SAP ECC (VF01, billing type F2).</documentation><incoming>F_1</incoming><outgoing>F_2</outgoing><property id="Prop_t1" name="__targetRef_placeholder"/><dataInputAssociation id="A_1"><sourceRef>d1</sourceRef><targetRef>Prop_t1</targetRef></dataInputAssociation><dataOutputAssociation id="A_2"><targetRef>d2</targetRef></dataOutputAssociation></task>
+  <task id="t2" name="Check invoice"><documentation>IT system: PriceBook.</documentation><incoming>F_2</incoming><outgoing>F_3</outgoing></task>
+  <exclusiveGateway id="g" name="Price correct?"><incoming>F_3</incoming><outgoing>F_4</outgoing><outgoing>F_5</outgoing></exclusiveGateway>
+  <task id="t3" name="Correct invoice"><documentation>Credit memo (G2) and corrected invoice. IT systems: SAP ECC, PriceBook.</documentation><incoming>F_5</incoming><outgoing>F_6</outgoing><property id="Prop_t3" name="__targetRef_placeholder"/><dataInputAssociation id="A_4"><sourceRef>ds</sourceRef><targetRef>Prop_t3</targetRef></dataInputAssociation><dataOutputAssociation id="A_3"><targetRef>d3</targetRef></dataOutputAssociation></task>
+  <exclusiveGateway id="g2" name=""><incoming>F_4</incoming><incoming>F_6</incoming><outgoing>F_7</outgoing></exclusiveGateway>
+  <task id="t4" name="Send invoice"><documentation>Output RD00.</documentation><incoming>F_7</incoming><outgoing>F_8</outgoing></task>
+  <endEvent id="e" name="Invoice sent"><incoming>F_8</incoming></endEvent>
+  <dataObject id="DO_d1"/>
+  <dataObjectReference id="d1" name="Delivery [confirmed]" dataObjectRef="DO_d1"/>
+  <dataObject id="DO_d2"/>
+  <dataObjectReference id="d2" name="Invoice [created]" dataObjectRef="DO_d2"/>
+  <dataObject id="DO_d3"/>
+  <dataObjectReference id="d3" name="Invoice [corrected]" dataObjectRef="DO_d3"/>
+  <dataStoreReference id="ds" name="PriceBook"/>
+  <sequenceFlow id="F_1" name="" sourceRef="s" targetRef="t1"/>
+  <sequenceFlow id="F_2" name="" sourceRef="t1" targetRef="t2"/>
+  <sequenceFlow id="F_3" name="" sourceRef="t2" targetRef="g"/>
+  <sequenceFlow id="F_4" name="yes" sourceRef="g" targetRef="g2"/>
+  <sequenceFlow id="F_5" name="no" sourceRef="g" targetRef="t3"/>
+  <sequenceFlow id="F_6" name="" sourceRef="t3" targetRef="g2"/>
+  <sequenceFlow id="F_7" name="" sourceRef="g2" targetRef="t4"/>
+  <sequenceFlow id="F_8" name="" sourceRef="t4" targetRef="e"/>
+</process>
+<bpmndi:BPMNDiagram id="D_Bill_customer" name="Bill customer"><bpmndi:BPMNPlane id="PL_Bill_customer" bpmnElement="C_Bill_customer">
+<bpmndi:BPMNShape id="S_P_Bill_customer" bpmnElement="P_Bill_customer" isHorizontal="true"><dc:Bounds x="40" y="40" width="1465" height="440"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_Bill_customer_0" bpmnElement="L_Bill_customer_0" isHorizontal="true"><dc:Bounds x="70" y="40" width="1435" height="220"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_Bill_customer_1" bpmnElement="L_Bill_customer_1" isHorizontal="true"><dc:Bounds x="70" y="260" width="1435" height="220"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_s" bpmnElement="s"><dc:Bounds x="175" y="135" width="30" height="30"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t1" bpmnElement="t1"><dc:Bounds x="295" y="330" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t2" bpmnElement="t2"><dc:Bounds x="460" y="110" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_g" bpmnElement="g" isMarkerVisible="true"><dc:Bounds x="665" y="130" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t3" bpmnElement="t3"><dc:Bounds x="790" y="160" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_g2" bpmnElement="g2" isMarkerVisible="true"><dc:Bounds x="995" y="130" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t4" bpmnElement="t4"><dc:Bounds x="1120" y="330" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_e" bpmnElement="e"><dc:Bounds x="1331" y="356" width="28" height="28"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_d1" bpmnElement="d1"><dc:Bounds x="170" y="287" width="90" height="66"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_d2" bpmnElement="d2"><dc:Bounds x="434" y="392" width="90" height="66"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_d3" bpmnElement="d3"><dc:Bounds x="739" y="292" width="90" height="66"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_ds" bpmnElement="ds"><dc:Bounds x="964" y="295" width="70" height="60"/></bpmndi:BPMNShape>
+<bpmndi:BPMNEdge id="E_F_1" bpmnElement="F_1"><di:waypoint x="205" y="150"/><di:waypoint x="355" y="150"/><di:waypoint x="355" y="330"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_2" bpmnElement="F_2"><di:waypoint x="415" y="370"/><di:waypoint x="520" y="370"/><di:waypoint x="520" y="190"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_3" bpmnElement="F_3"><di:waypoint x="580" y="150"/><di:waypoint x="665" y="150"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_4" bpmnElement="F_4"><di:waypoint x="705" y="150"/><di:waypoint x="995" y="150"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_5" bpmnElement="F_5"><di:waypoint x="685" y="170"/><di:waypoint x="685" y="200"/><di:waypoint x="790" y="200"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_6" bpmnElement="F_6"><di:waypoint x="910" y="200"/><di:waypoint x="1015" y="200"/><di:waypoint x="1015" y="170"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_7" bpmnElement="F_7"><di:waypoint x="1035" y="150"/><di:waypoint x="1180" y="150"/><di:waypoint x="1180" y="330"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_8" bpmnElement="F_8"><di:waypoint x="1240" y="370"/><di:waypoint x="1331" y="370"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_A_1" bpmnElement="A_1"><di:waypoint x="260" y="320"/><di:waypoint x="295" y="370"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_A_2" bpmnElement="A_2"><di:waypoint x="355" y="410"/><di:waypoint x="479" y="392"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_A_3" bpmnElement="A_3"><di:waypoint x="850" y="240"/><di:waypoint x="784" y="292"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_A_4" bpmnElement="A_4"><di:waypoint x="999" y="295"/><di:waypoint x="850" y="240"/></bpmndi:BPMNEdge>
+</bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</definitions>

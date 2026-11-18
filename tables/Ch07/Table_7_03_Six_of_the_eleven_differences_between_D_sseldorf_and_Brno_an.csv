@@ -1,0 +1,7 @@
+﻿Difference,Business reason?,Decision
+Brno checks engineering configuration before creating the order,Yes: pumps are configured to order,Legitimate variant (dimension Site = Brno)
+Different role names for the same job,No,Merge roles in the Dictionary
+Brno's trusted customer list for credit releases,No: credit risk doesn't depend on the plant,Not a variant; a finding for mandate P3
+"Brno sends confirmations after credit release, Düsseldorf before","No, and Brno's way is better",Template changes to Brno's way (Chapter 8)
+Düsseldorf checks prices against PriceBook,No: workaround for outdated SAP prices,Not a variant; a finding for mandate P3
+Brno prints delivery notes in Czech,Yes: legal requirement for domestic deliveries,"Legitimate, documented at level 4 only"

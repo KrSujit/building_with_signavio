@@ -1,0 +1,4 @@
+﻿Element,Shape,What it is,Velora example
+Decision,Rectangle,Determines an output from inputs using logic,Decide credit release; Determine customer risk class
+Input data,Oval (stadium shape),Information a decision needs,"Days past due (average, 12 months); Years as customer; Amount over credit limit (%); Credit insured; Open disputes"
+Knowledge source,Shape with a wavy bottom edge,"The authority behind the logic: a policy, regulation, or expert",Velora Credit Policy; Credit insurer limit

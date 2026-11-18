@@ -1,0 +1,6 @@
+﻿Component,Who meets it,Its job
+Joule,Everyone,SAP's AI brand and copilot across the portfolio
+Joule Work,Business users,"The workspace where users ask, direct, and approve work in natural language"
+Joule Assistants,"Business users, indirectly",Use role and business context to route work to the right agents
+Joule Agents,Called by assistants,Carry out one specialized task in a business process
+Joule Studio,Developers and business experts,"Build new agents, workflows, and applications, and extend SAP-delivered agents"

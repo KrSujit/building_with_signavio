@@ -1,0 +1,6 @@
+﻿,BPMN,DMN
+Describes,The order of work,How an outcome is determined
+Changes when,The way of working changes,The rules or policy change
+Main elements,"Tasks, events, gateways, flows","Decisions, input data, knowledge sources, decision tables"
+Velora example,Manage credit,Decide credit release
+Typical owner,Process owner,"Policy owner (here: Head of Credit, with the CFO)"

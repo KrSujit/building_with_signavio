@@ -1,0 +1,8 @@
+﻿Family,What it measures,Typical unit,Variables it usually needs
+Volume,"How many cases, events, or items",Count,None
+Time,How long cases or steps take,"Days or hours (average, median, percentile)",Target durations
+Rework and loops,How often steps repeat or cases go back,"% of cases, count per case","None, or the activity to watch"
+Exceptions,How often an unwanted step happens,% of cases,The activity name
+Sequence and conformance,Whether cases follow the expected order,% of cases,The expected sequence
+Automation and users,Who or what performs the steps,% of events,The user types counted as automatic
+Value,Money attached to cases,Currency,"Currency, cost rates"

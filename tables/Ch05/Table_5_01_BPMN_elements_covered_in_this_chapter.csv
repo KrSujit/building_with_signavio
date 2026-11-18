@@ -1,0 +1,6 @@
+﻿Element group,Elements in this chapter,What they express
+Swimlanes,"Pool, lane, additional participant","Who is responsible, and who takes part"
+Activities,"Task (user, manual, service)",What is done
+Gateways,"Exclusive, parallel, inclusive, event-based; complex (to recognize, not to use)",How the flow splits and joins
+Events,"Start, intermediate, end; none, message, timer, conditional, link, error, escalation","What happens, and what the process reacts to"
+Connections,Sequence flow,In which order

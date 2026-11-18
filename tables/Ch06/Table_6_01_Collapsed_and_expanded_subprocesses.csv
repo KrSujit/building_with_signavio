@@ -1,0 +1,3 @@
+﻿Form,How it looks,When to use it
+Collapsed subprocess,A task-like box with a plus marker; the content is in a linked diagram,"Almost always: keeps the parent readable, detail one click away"
+Expanded subprocess,"A large rounded box on the parent canvas, with its content drawn inside","Small groups of steps that belong together and that readers need to see in context, such as a retry loop"

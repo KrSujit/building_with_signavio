@@ -1,0 +1,6 @@
+﻿Class,Meaning,Clean core impact
+Fit,The standard covers the need,None
+Configure,The standard covers it with configuration,None
+Change the business,Velora adapts its way of working to the standard,"None, but needs change management"
+Extend,"A side-by-side extension, for example on SAP Business Technology Platform, or an approved in-app extension",Must follow clean core rules
+Reject,The requirement is dropped,None

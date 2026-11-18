@@ -1,0 +1,6 @@
+﻿Element,Meaning
+Decision,"A question with a defined set of answers, described by a decision table"
+Input data,Information the decision needs
+Business knowledge model,"Reusable logic, such as a scoring rule"
+Knowledge source,"The authority behind the rules, such as the credit policy"
+Decision table,"Inputs, outputs, rules, and a hit policy (unique, first, priority, any, collect)"

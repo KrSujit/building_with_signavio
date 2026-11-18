@@ -1,0 +1,5 @@
+﻿Gateway,Marker,Splitting behaviour,Joining behaviour,Velora example
+Exclusive (XOR),× or empty,"Exactly one outgoing path is taken, based on a condition",Passes on each arriving token,Customer on trusted list? yes or no
+Parallel (AND),+,All outgoing paths are taken at the same time,Waits until all incoming paths have arrived,Send confirmation and schedule production at the same time
+Inclusive (OR),○,"One or more paths are taken, each with its own condition",Waits for all paths that were actually started,Notify Sales and/or Key Account Manager
+Event-based,◇ with pentagon,The path depends on which event happens first,Not used for joining,Release received or 48 hours passed

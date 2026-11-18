@@ -1,0 +1,7 @@
+﻿Function,Level,What it does,Example
+"COUNT, COUNT(DISTINCT …)",Case or event,Counts rows or distinct values,COUNT(DISTINCT customer_id)
+"SUM, AVG, MIN, MAX",Case or event,The usual,AVG(order_value_eur)
+MEDIAN,Case or event,Middle value; robust against outliers,MEDIAN(order_value_eur)
+PERCENTILE_CONT(p) WITHIN GROUP (ORDER BY x),Case or event,Any percentile,90th percentile of cycle time
+"FIRST, LAST",Event (in a subquery),The value of the first or last event,(SELECT FIRST(end_time))
+"BOOL_OR, BOOL_AND",Event (in a subquery),Is a condition true for any or all events?,(SELECT BOOL_OR(event_name = 'Create credit memo'))

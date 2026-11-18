@@ -1,0 +1,6 @@
+﻿Symptom,Check first,Fix
+"Test fails with ""checking credentials: rejected"" after a long wait",Extractor process still running? SAP router string correct?,Restart the extractor; correct the router string
+"""Host not reachable"" for an SAP system in a private cloud",Is the connection routed through an extractor in that network?,Allow-listing isn't enough; route it through an extractor in that network
+"Extraction fails with ""access denied"" on a temporary file",Write access to the temporary folder,Grant it and run again
+Rows wider than 512 bytes can't be read,SAP Note 2246160 in the source,Implement the Note (Step 6)
+Changed connection arguments or new SAP Notes have no effect,When did the service last start?,Restart it: it reads settings only at start-up

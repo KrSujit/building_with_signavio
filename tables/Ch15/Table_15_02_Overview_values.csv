@@ -1,0 +1,5 @@
+﻿Value widget,Aggregation,Result (last 12 months)
+Sales orders,COUNT of cases,"41,300"
+Average order to invoice,AVG of duration from Create sales order to first Create invoice,8.5 days
+Average invoice to payment,AVG of duration from first Create invoice to Clear payment,45.9 days
+Orders with credit memo,Share of cases with Create credit memo,7.5%

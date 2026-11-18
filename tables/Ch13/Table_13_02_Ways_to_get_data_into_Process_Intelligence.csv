@@ -1,0 +1,4 @@
+﻿Path,When to use it
+SAP Signavio connectors,"Pre-built for common systems, including SAP ECC and SAP S/4HANA; the easiest option"
+Connectors through SAP Business Technology Platform,When SAP's integration platform is already the company's standard
+"Bring your own data (APIs, OData, file drop, CSV)","When a system has no connector, or existing integrations should be reused"

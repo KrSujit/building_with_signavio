@@ -1,0 +1,5 @@
+﻿Trigger,Who starts a case,Velora use
+Forms (public or private),"Anyone with the link, or signed-in members of the organization",Process change request: anyone can request a change to a process
+When an email arrives,An e-mail to the workflow's mailbox,Not used yet
+Process Manager > Signavio approval,A modeller starts an approval workflow on a model in Process Manager,Model approval (ISO): every publication
+Process Manager > Journey Model approval,Someone starts an approval of a customer journey model,Not used

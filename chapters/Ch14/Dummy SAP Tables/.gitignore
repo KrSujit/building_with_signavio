@@ -1,0 +1,7 @@
+# generated locally, not part of the repository
+tables/
+out/
+template/
+*.json
+# SAP content: created from your own copy of the template by apply_clearing_fix.py
+velora_ext/Accounting__2._Clearing_Events.sql

@@ -1,0 +1,6 @@
+﻿Metric,Question,SiGNAL expression (Velora's event names)
+After-the-fact PO rate,How many PO items are created after the invoice arrived?,COUNT(case_id) FILTER (WHERE event_name MATCHES ('Receive invoice' ~> 'Create purchase order'))  100.0 / COUNT(case_id)
+Late after-the-fact PO rate,How many of those are later than the tolerance?,COUNT(case_id) FILTER (WHERE (SELECT FIRST(end_time) FILTER (WHERE event_name = 'Create purchase order')) - (SELECT FIRST(end_time) FILTER (WHERE event_name = 'Receive invoice')) > <atf_tolerance_days>  DURATION '1day')  100.0 / COUNT(case_id)
+PO approval time (median days),How long do approvals take?,MEDIAN(((SELECT FIRST(end_time) FILTER (WHERE event_name = <approval_activity>)) - (SELECT FIRST(end_time) FILTER (WHERE event_name = 'Create purchase order'))) / 86400000)
+Invoice blocked for payment,How many items have a payment block?,COUNT(case_id) FILTER (WHERE (SELECT BOOL_OR(event_name = <payment_block_activity>)))  100.0 / COUNT(case_id)
+Paid on time,How many invoices are paid by the due date?,"Needs the due date as an event attribute or a case attribute (Chapter 16, Section 16.3)"

@@ -1,0 +1,6 @@
+﻿Area,Velora rule (summary)
+Notation,Use the Velora BPMN subset (Chapter 3); no element outside it at L3
+Naming,"Processes: verb + object or X to Y; tasks: verb + object (Check credit limit), never Credit or Processing; events: object + past participle (Order received); gateways: a question (Credit limit exceeded?)"
+Structure,One start event per process; every path ends in an end event; at most 15 tasks per diagram before you create a subprocess
+Architecture,"Every model is filed in the Process House folder of its level; lanes use roles from the Dictionary, never people's names"
+Layout,Flow from left to right; lanes horizontal; no crossing sequence flows where avoidable; Velora colours only for highlights agreed in the conventions

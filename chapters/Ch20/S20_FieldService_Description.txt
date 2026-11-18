@@ -1,0 +1,19 @@
+Building with SAP Signavio – companion file S20
+S20_FieldService_Description.txt – The description used for text to process (Chapter 20, Section 20.3)
+
+HOW TO USE
+In Process Manager, start the AI-assisted process modeler (text to process) and paste the text between the two lines below. Then review the generated model against your modeling conventions: Dictionary names, DMN decisions, IT systems, one action per task (Section 20.3, PD-069). Attach this description to the model. The description follows Velora's template: roles, trigger, steps, decisions, end states. Fictional example: Velora Group SE and its process are invented for the book.
+
+-----------------------------------------------------------------------------------------
+Process: Field Service to Resolution at Velora Aftermarket Services. Process owner: Daniel Okafor.
+Roles: service coordinator, remote support engineer, dispatcher, field technician.
+Trigger: a service request from a customer. Systems: customer portal, field service tool, spare parts system, SAP ECC.
+
+The service coordinator receives a service request from the customer portal, by phone, or from a sensor alert. The coordinator checks the contract and warranty status. If the asset is not covered, the coordinator sends a quote, and the process ends if the customer declines. If covered or accepted, the coordinator checks whether the problem can be solved remotely. If yes, a remote support engineer resolves it and the case is closed. If not, the dispatcher plans a field visit based on skills, location, and spare parts availability. If the required spare parts are not in stock, the dispatcher reserves or orders them in the spare parts system and schedules the visit for the confirmed delivery date. The dispatcher creates the service order in the field service tool, assigns the field technician, and confirms the appointment with the customer.
+
+The field technician travels to the site, diagnoses the problem, and repairs the asset. After the repair, the technician tests the asset with the customer present. If the problem is not fixed, the technician records the reason, and the dispatcher plans a follow-up visit. If the problem is fixed, the technician records the work time, the spare parts used, and the result in the service report, and the customer signs the report on the technician's tablet. The technician returns unused spare parts to the van stock.
+
+The service coordinator checks the service report. For work covered by the contract or warranty, the coordinator closes the case. For billable work, the coordinator releases the service report for billing, and billing creates the invoice from the service order. The coordinator then closes the case and sends the customer a short satisfaction survey.
+
+The process ends in one of three ways: the customer declines the quote, the case is closed after remote support, or the case is closed after the field visit.
+-----------------------------------------------------------------------------------------

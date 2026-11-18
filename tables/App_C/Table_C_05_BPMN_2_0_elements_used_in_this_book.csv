@@ -1,0 +1,17 @@
+﻿Group,Element,Meaning,Chapter
+Activities,Task,One unit of work by one role,"4, 5"
+,"User, service, manual, business rule, send, receive task",Task types; required for automation in Process Governance,"5, 10"
+,Collapsed subprocess,"A linked, more detailed diagram",6
+,Call activity,A reused global process,6
+Events,"Start, intermediate, end",Something that happens,5
+,"Message, timer, conditional, link, error, escalation, terminate",Event types,5
+,Boundary events (interrupting and non-interrupting),Exceptions and deadlines on a task,5
+Gateways,Exclusive (XOR),"One path, based on a condition",5
+,Parallel (AND),All paths at once,5
+,Inclusive (OR),One or more paths,5
+,Event-based,The first event to occur decides,5
+,Complex,A custom rule for merging,5
+Swimlanes,"Pool, lane",Participants and roles,5
+Data,"Data object, data store",Documents and systems used,"5, 7"
+Artifacts,"Text annotation, group",Explanations; visual grouping,5
+Signavio extensions,"IT system, document, risk, control (from the Dictionary)",Linked objects that feed reports and overlays,"7, 10, 11"

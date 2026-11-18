@@ -1,0 +1,6 @@
+﻿Question,Condition,Result
+Orders blocked and later released,event_name MATCHES ('Block for credit' ~> 'Release credit block'),27.1% of orders
+"Released immediately after the block, nothing in between",event_name MATCHES ('Block for credit' -> 'Release credit block'),954 orders
+Complete from order to payment,event_name MATCHES (^ 'Create sales order' ~> 'Clear payment' $),"29,053 orders"
+A rejection or a credit memo after the order,event_name MATCHES ('Create sales order' ~> ('Reject order' | 'Create credit memo')),"3,633 orders"
+Not yet cleared,NOT event_name MATCHES ('Clear payment'),"3,409 orders"

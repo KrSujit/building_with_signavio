@@ -1,0 +1,19 @@
+﻿Business object,Tables,What they record,Velora rows
+Sales,"VBAK, VBAP, VBEP","Order header, items, schedule lines","41,300 / 180,389 / 180,389"
+,"CDHDR, CDPOS","Change documents: who changed which field, when, from what to what","139,053 / 148,953"
+,NAST,Output messages: order confirmations and invoices sent,"79,183"
+,VBFA,Document flow: which document follows which,"560,638"
+,VBSS,Collective processing (empty at Velora),0
+,STXH,Text headers: the credit review note (Velora extension),"9,506"
+Purchasing,"EBAN, EKKO, EKPO",Purchase requisitions and orders for third-party items,"2,438 / 561 / 2,438"
+Delivery,"LIKP, LIPS",Delivery header and items,"55,066 / 177,904"
+,"MKPF, MSEG",Material documents: the goods issue,"55,066 / 177,904"
+,"VTTK, VTTP",Shipments (empty at Velora),0 / 0
+Billing,"VBRK, VBRP","Billing document header and items: invoices, credit memos","46,922 / 204,830"
+Accounting,"BKPF, BSEG",Accounting document header and line items,"125,789 / 245,408"
+Master data,"KNA1, KNVV",Customer general data; sales area data (Velora extension),"1,400 / 2,800"
+,VUSR02_HEADER,User master: user type (dialog or system),45
+Configuration,"T001, T001K, T001W, TVKO, TVAK, TVAP","Company codes, plants, sales organizations, order and item types",2 each
+Texts,"TVAKT, TVAPT, TVAGT, TVAUT, TVKBT, TVKOT, TVLKT, TVLST, TVFST, T023T, MAKT, T003T, TBSLT, T156HT",Descriptions of codes in the language of the report,1 to 10 each
+Dictionary,"DDFTX, DD07T",Field labels and domain value texts,11 / 5
+Currency,"TCURC, TCURX, TCURR, TCURF","Currency codes, decimals, exchange rates",3 / 1 / 15 / 1

@@ -1,0 +1,6 @@
+﻿#,Rule
+1,AI-generated models carry the attribute Created with AI and the description used. The attribute stays until the model's first approval.
+2,"AI-generated content goes through the same approval workflow as any other model (Chapter 10). No exceptions for ""drafts"" in the published folders."
+3,AI answers on process data are drafts. Numbers used in decisions come from metrics.
+4,"Prompts and uploads contain no personal data beyond what the pseudonymized data already shows, and no confidential documents outside the approved AI scope."
+5,AI unit use is reported monthly by feature; features without measured benefit after three months are switched off.

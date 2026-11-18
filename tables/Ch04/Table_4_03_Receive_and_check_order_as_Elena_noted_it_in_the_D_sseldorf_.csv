@@ -1,0 +1,7 @@
+﻿#,Activity,Performed by,IT system,Input,Output,Pain point
+1,Receive purchase order,Order Desk Clerk,Outlook,Customer PO (PDF),,40% of orders arrive as PDF by e-mail
+2,Check price against PriceBook,Order Desk Clerk,PriceBook,Customer PO,,Price differs on about 1 order in 5
+3,Clarify price with Sales,Sales Representative,"Outlook, Salesforce",Price question,Confirmed price,Waiting time 1–3 days
+4,Check configuration,Order Desk Clerk,SAP ECC,Customer PO,,
+5,Create sales order,Order Desk Clerk,SAP ECC,Customer PO,Sales order,"Manual entry, about 12 minutes per order"
+6,Send order confirmation,Order Desk Clerk,SAP ECC,Sales order,Order confirmation,Sent before credit check

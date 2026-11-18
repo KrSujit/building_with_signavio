@@ -1,0 +1,16 @@
+﻿Report (menu name),Output,What it answers,Needs in the models
+Process documentation (PDF),PDF,A printable handbook of the selected diagrams with element details,Descriptions and attributes worth printing; optionally a corporate template
+Process documentation (Word),.docx,"The same, editable in Word",As above
+Governance report,Spreadsheet,"Which models are in which approval state, and since when",Process model approvals in use (Chapter 10)
+Process cost analysis,Spreadsheet,"Cost per activity and cost centre, based on frequency and cost per activity","Frequencies, gateway probabilities, costs, cost centres"
+Resource consumption analysis,Spreadsheet,"Hours per resource, based on frequency and execution time","Frequencies, durations, lanes or resources"
+Modeling conventions,Spreadsheet,Which diagrams break which rules of a convention set,Nothing extra; it checks the diagrams themselves
+Responsibility assignment matrix / RACI,Spreadsheet,"Who is responsible, accountable, consulted, and informed per activity","Lanes; RACI attributes on tasks for A, C, and I"
+Responsibility handovers matrix,Spreadsheet,"Every hand-off between roles, inside and across pools",Lanes and sequence or message flows
+Documents usage matrix,Spreadsheet,Which activities create or use which documents,Documents linked to tasks from the Dictionary
+IT system usage matrix (by diagrams),Spreadsheet,"Which activities use which IT systems, grouped by diagram",IT systems linked to tasks from the Dictionary
+IT system usage matrix (by roles),Spreadsheet,"The same, grouped by role",IT systems and lanes
+Process characteristics with element details,Spreadsheet,All attribute values of all elements of the chosen models,Individual models (not folders) selected
+Process model metrics,Spreadsheet,"Size and complexity per model: elements, gateways, lanes, depth",Nothing extra
+Risks & controls report,Spreadsheet,Which risks and controls are attached to which activities,Risks and controls from the Dictionary (Chapter 10)
+User/Group assignment,Spreadsheet,Which users and groups have which rights on which folders,Nothing extra; for administrators

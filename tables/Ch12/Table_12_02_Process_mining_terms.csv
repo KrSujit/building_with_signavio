@@ -1,0 +1,5 @@
+﻿Term,Definition
+Event,"One row: a case, an activity, and a timestamp"
+Case,All events with the same case ID
+Variant,The sequence of activities in a case; cases with the same sequence share a variant
+Attribute,Additional information on an event or a case

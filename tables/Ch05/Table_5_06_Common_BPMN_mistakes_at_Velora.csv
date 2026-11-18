@@ -1,0 +1,9 @@
+﻿Mistake,What the model says,What the modeller meant,Fix
+"Parallel split, no join",Everything after the paths happens twice,"The two steps happen in any order, then we continue",Add a joining parallel gateway
+"Exclusive split, parallel join",The process waits forever for a path that was never taken,The paths come back together,Join an exclusive split with an exclusive gateway (or let flows merge into a task)
+"Parallel split, exclusive join",Everything after the join happens once per path,"The paths come back together, then we continue once",Join a parallel split with a parallel gateway
+Gateway without a question,Readers guess the condition,A decision is made here,Label the gateway with a question and the flows with answers
+Decision inside a gateway,Nobody does the work of deciding,Someone checks something,Add a task before the gateway
+Several start events without reason,The process can start in several unrelated ways,"One trigger, described twice",One start event per process (Velora convention)
+Loop without an exit,The process can loop forever,"Retry, but not forever","Add a counter, timer, or escalation"
+Task named as a noun,Credit,Check credit limit,Verb + object

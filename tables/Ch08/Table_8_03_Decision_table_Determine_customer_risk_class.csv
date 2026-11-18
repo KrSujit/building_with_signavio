@@ -1,0 +1,5 @@
+﻿U,"Days past due (average, 12 months)",Years as customer,→ Risk class
+1,≤ 5,≥ 3,Low
+2,≤ 5,< 3,Medium
+3,(5..20],-,Medium
+4,> 20,-,High

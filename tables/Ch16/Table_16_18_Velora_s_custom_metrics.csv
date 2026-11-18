@@ -1,0 +1,11 @@
+﻿Metric,Process,Unit,Variable
+Invoice correction rate,O2C,% of orders,—
+Late price change rate,O2C,% of orders,—
+Credit block rate,O2C,% of orders,—
+Release without review,O2C,orders,—
+Order to first invoice,O2C,days (median),—
+Goods issue to invoice (days),O2C,days (average),—
+Goods issue to invoice (orders over target),O2C,% of orders,billing_target_days (1)
+Invoice to payment,O2C,days (median),—
+After-the-fact PO rate,P2P,% of PO items,—
+Late after-the-fact PO rate,P2P,% of PO items,atf_tolerance_days (7)

@@ -1,0 +1,160 @@
+{
+  "_companionFile": "Building with SAP Signavio – companion file S16",
+  "_title": "Velora's custom metric definitions (example)",
+  "_howToUse": [
+    "This file documents the metric collections of Velora (Table 16.18 and Section 16.11) in a readable JSON structure. It is an EXAMPLE, not SAP Signavio's own export format: to move metrics between workspaces, use Export and Import on the Customizable Metrics tab, which use the product's own JSON.",
+    "To rebuild a metric: open Analysis Configuration > your process > Customizable Metrics > Create Metric, enter name and description, keep the aggregation type, paste the signal expression, and create the variables first on the Variables tab (Section 16.11).",
+    "Metrics marked \"printed metric\" in source are exactly as in the book; \"derived\" ones are written for this file from the book's queries and were not shown as metrics in the book. Test every metric in the preview before you use it (PD-056).",
+    "Business thresholds are variables owned by the process owner (PD-054). Durations: SiGNAL compares them with literals such as DURATION '1day'."
+  ],
+  "_fictional": "All names and data are fictional: Velora Group SE is invented for the book. resultInBook values are those printed in Chapter 16 on the companion data.",
+  "collections": [
+    {
+      "process": "O2C – Velora (daily)",
+      "owner": "Katrin Vogel",
+      "metrics": [
+        {
+          "name": "Invoice correction rate",
+          "referenceName": "${Metric.Invoice_correction_rate}",
+          "description": "Share of orders with a credit memo (Velora calls it the invoice correction rate). Mandate P3: under 4%.",
+          "owner": "Katrin Vogel",
+          "aggregationType": "Over cases",
+          "unit": "% of orders",
+          "signal": "COUNT(case_id) FILTER (WHERE (SELECT BOOL_OR(event_name = 'Create credit memo')))\n  * 100.0 / COUNT(case_id)",
+          "variables": [],
+          "source": "Chapter 16, Section 16.11 (printed metric)",
+          "resultInBook": "7.47"
+        },
+        {
+          "name": "Late price change rate",
+          "referenceName": "${Metric.Late_price_change_rate}",
+          "description": "Share of orders with Change price after credit release (rule PD-047). Decision PD-050.",
+          "owner": "Katrin Vogel",
+          "aggregationType": "Over cases",
+          "unit": "% of orders",
+          "signal": "COUNT(case_id) FILTER (WHERE (SELECT BOOL_OR(event_name = 'Change price after credit release')))\n  * 100.0 / COUNT(case_id)",
+          "variables": [],
+          "source": "Chapter 16, Section 16.11 (printed metric)",
+          "resultInBook": "13.43"
+        },
+        {
+          "name": "Credit block rate",
+          "referenceName": "${Metric.Credit_block_rate}",
+          "description": "Share of orders blocked for credit at least once. Counts cases, not events.",
+          "owner": "Katrin Vogel",
+          "aggregationType": "Over cases",
+          "unit": "% of orders",
+          "signal": "COUNT(case_id) FILTER (WHERE (SELECT BOOL_OR(event_name = 'Block for credit')))\n  * 100.0 / COUNT(case_id)",
+          "variables": [],
+          "source": "Derived for this file from the pattern of the printed metrics (Section 16.11) and query Q25 (Section 16.6); not printed as a metric in the book"
+        },
+        {
+          "name": "Release without review",
+          "referenceName": "${Metric.Release_without_review}",
+          "description": "Orders released but never reviewed: the phone releases at Brno.",
+          "owner": "Katrin Vogel",
+          "aggregationType": "Over cases",
+          "unit": "orders",
+          "signal": "COUNT(case_id) FILTER (\n  WHERE (SELECT BOOL_OR(event_name = 'Release credit block'))\n    AND NOT (SELECT BOOL_OR(event_name = 'Review blocked order'))\n)",
+          "variables": [],
+          "source": "Chapter 16, Section 16.11 (printed metric)",
+          "resultInBook": "2,229"
+        },
+        {
+          "name": "Order to first invoice",
+          "referenceName": "${Metric.Order_to_first_invoice}",
+          "description": "Median duration from the first event (Create sales order) to the first invoice. Displayed as a duration.",
+          "owner": "Katrin Vogel",
+          "aggregationType": "Over cases",
+          "unit": "days (median)",
+          "signal": "MEDIAN((SELECT FIRST(end_time) FILTER (WHERE event_name = 'Create invoice'))\n     - (SELECT FIRST(end_time)))",
+          "variables": [],
+          "source": "Derived for this file from query Q16 (Section 16.5); not printed as a metric in the book"
+        },
+        {
+          "name": "Goods issue to invoice (orders over target)",
+          "referenceName": "${Metric.Goods_issue_to_invoice_(orders_over_target)}",
+          "description": "Share of orders whose first invoice comes more than billing_target_days after the last goods issue. With 3 days: 28.6%.",
+          "owner": "Katrin Vogel",
+          "aggregationType": "Over cases",
+          "unit": "% of orders",
+          "signal": "100.0 * COUNT(case_id) FILTER (\n    WHERE (SELECT FIRST(end_time) WHERE event_name = 'Create invoice')\n        - (SELECT LAST(end_time)  WHERE event_name = 'Post goods issue')\n      > ${Variable.billing_target_days} * DURATION '1day'\n  ) / COUNT(case_id)",
+          "variables": [
+            {
+              "name": "billing_target_days",
+              "referenceName": "${Variable.billing_target_days}",
+              "value": [
+                "1"
+              ],
+              "owner": "Katrin Vogel",
+              "description": "Target in days from the last goods issue to the first invoice. Owner: O2C process owner (PD-054)."
+            }
+          ],
+          "source": "Chapter 16, Section 16.11 (printed metric, Figure 16.9)",
+          "resultInBook": "60.4"
+        },
+        {
+          "name": "Goods issue to invoice (days)",
+          "referenceName": "${Metric.Goods_issue_to_invoice_(days)}",
+          "description": "Average from the FIRST goods issue to the first invoice; partial deliveries make it longer than the median of Section 16.5.",
+          "owner": "Katrin Vogel",
+          "aggregationType": "Over cases",
+          "unit": "days",
+          "signal": "AVG(\n  (SELECT FIRST(end_time) WHERE event_name = 'Create invoice')\n  - (SELECT FIRST(end_time) WHERE event_name = 'Post goods issue')\n)",
+          "variables": [],
+          "source": "Chapter 16, Section 16.11 (printed metric, Figure 16.12)",
+          "resultInBook": "3 days, 4 hours"
+        },
+        {
+          "name": "Invoice to payment",
+          "referenceName": "${Metric.Invoice_to_payment}",
+          "description": "Median duration from the first invoice to the clearing of the payment (PD-048). Use on paid orders (Case status = complete).",
+          "owner": "Katrin Vogel",
+          "aggregationType": "Over cases",
+          "unit": "days (median)",
+          "signal": "MEDIAN((SELECT LAST(end_time)  FILTER (WHERE event_name = 'Clear payment'))\n     - (SELECT FIRST(end_time) FILTER (WHERE event_name = 'Create invoice')))",
+          "variables": [],
+          "source": "Derived for this file from the query in \"The Price of a Correction\" (Section 16.9); not printed as a metric in the book"
+        }
+      ]
+    },
+    {
+      "process": "P2P – Velora",
+      "owner": "Rui Santos",
+      "metrics": [
+        {
+          "name": "After-the-fact PO rate",
+          "referenceName": "${Metric.After-the-fact_PO_rate}",
+          "description": "Share of PO items where the supplier invoice arrived before the purchase order was created.",
+          "owner": "Rui Santos",
+          "aggregationType": "Over cases",
+          "unit": "% of PO items",
+          "signal": "COUNT(case_id) FILTER (\n    WHERE event_name MATCHES ('Receive invoice' ~> 'Create purchase order')\n) * 100.0 / COUNT(case_id)",
+          "variables": [],
+          "source": "Derived for this file from the query in Section 16.12; not printed as a metric in the book"
+        },
+        {
+          "name": "Late after-the-fact PO rate",
+          "referenceName": "${Metric.Late_after-the-fact_PO_rate}",
+          "description": "Share of PO items whose PO was created more than atf_tolerance_days after the invoice.",
+          "owner": "Rui Santos",
+          "aggregationType": "Over cases",
+          "unit": "% of PO items",
+          "signal": "COUNT(case_id) FILTER (WHERE\n    (SELECT FIRST(end_time) FILTER (WHERE event_name = 'Create purchase order'))\n  - (SELECT FIRST(end_time) FILTER (WHERE event_name = 'Receive invoice'))\n  > ${Variable.atf_tolerance_days} * DURATION '1day')\n* 100.0 / COUNT(case_id)",
+          "variables": [
+            {
+              "name": "atf_tolerance_days",
+              "referenceName": "${Variable.atf_tolerance_days}",
+              "value": [
+                "7"
+              ],
+              "owner": "Rui Santos",
+              "description": "Tolerance in days between invoice and PO before a PO counts as late after the fact. 7 in Table 16.18; Procurement set it to 5 in Month 8."
+            }
+          ],
+          "source": "Chapter 16, Section 16.12 (printed metric)"
+        }
+      ]
+    }
+  ]
+}

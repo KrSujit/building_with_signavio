@@ -1,0 +1,9 @@
+﻿U,Risk class,Amount over credit limit (%),Credit insured,Open disputes,→ Release decision,→ Annotation
+1,Low,≤ 20,-,No,Release,Old limits are the main cause of blocks
+2,Low,> 20,Yes,No,Release with notice to Sales,Insurer covers the risk
+3,Low,> 20,No,-,Review by analyst,
+4,Low,≤ 20,-,Yes,Review by analyst,Disputes first
+5,Medium,≤ 10,-,No,Release with notice to Sales,
+6,Medium,> 10,-,-,Review by analyst,
+7,Medium,≤ 10,-,Yes,Review by analyst,
+8,High,-,-,-,Review by analyst,Analyst may reject

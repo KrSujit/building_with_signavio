@@ -1,0 +1,3 @@
+﻿Check,What it looks at,Example at Velora
+Syntax,"BPMN rules: every element connected, flows used correctly",A task with no outgoing sequence flow
+Modeling conventions,Your house rules from Chapter 3,A task named Price instead of Check price against PriceBook

@@ -1,0 +1,6 @@
+﻿Group,Widgets,Answers
+Process flow,"Process Discovery, Variant Explorer","What actually happens, and in how many ways?"
+Performance,"Value, Breakdown","How much, how many, how long, overall or per category?"
+Time,"Over Time, Distribution",How does it change over time? How spread out are durations?
+Process model,"Process Conformance, Process Funnel, Diagram",How does the data compare with the designed process?
+Other,"Case Table, Activity List, Correlation, SiGNAL Table, Text","Details, explanations, custom queries"

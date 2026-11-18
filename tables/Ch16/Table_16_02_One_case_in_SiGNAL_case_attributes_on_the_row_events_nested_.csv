@@ -1,0 +1,7 @@
+﻿case_id,customer_segment,sales_organization,order_value_eur,events
+4500108415,Direct industrial,DE01,"7,604.01",23 events:
+,,,,Create sales order · 2026-01-28 07:01 · User_103 · DE10
+,,,,Send order confirmation · 2026-01-28 08:06 · User_103 · DE10
+,,,,Block for credit · 2026-01-28 14:21 · SYSTEM · DE10
+,,,,Change quantity · …
+,,,,… 19 more events …

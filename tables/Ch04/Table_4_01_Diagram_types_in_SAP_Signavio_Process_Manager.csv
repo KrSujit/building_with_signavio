@@ -1,0 +1,8 @@
+﻿Diagram type,What it's for,Typical level,Velora example,Chapter
+Navigation map,"A free-form, clickable entry page with shapes, images, links, and live metrics",Entry page,Velora Process House,"7, 9"
+Value chain,"Processes as chevrons in their order, each linked to the diagram behind it","L1, L2",Order to Cash - value chain,7
+BPMN 2.0,"The process itself: tasks, events, gateways, lanes, data",L2 to L4,"Manage credit, Receive and check order",4–6
+QuickModel,A table that generates a BPMN diagram; best for workshops,L3,Receive and check order (first capture),4
+Organization chart,"Organizational units, positions, and people, and how they report",Supporting,Credit management organization,"4, 7"
+DMN,"Decision tables and requirements diagrams, linked from business rule tasks",Supporting,Release decision,8
+Customer journey,"The customer's steps and touchpoints, with links to the processes behind them (Journey Modeler)",Supporting,Iberia Utilities - order to payment,9

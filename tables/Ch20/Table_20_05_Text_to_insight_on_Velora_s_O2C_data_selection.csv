@@ -1,0 +1,6 @@
+﻿Question,Result,Verdict
+"""What are the top bottlenecks in order to cash?""","Credit block waiting time at Brno, billing waiting time at Brno",Correct; matched Chapter 15
+"""How does invoice-to-payment time differ between distributors and direct customers?""",55 vs. 42 days,Correct; matched Chapter 16
+"""How many orders had a price change after credit release last month?""",A number 20% too high,"Wrong: counted price changes, not orders"
+"""Why are invoices paid late?""","Corrections, terms, dunning, with shares","Plausible, but presented a correlation as a cause"
+"""Which user releases most credit blocks?""",Answer by pseudonymized user code,Correct technically; violated the no-ranking rule (PD-044)

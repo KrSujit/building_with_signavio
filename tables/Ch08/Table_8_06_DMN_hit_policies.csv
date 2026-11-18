@@ -1,0 +1,6 @@
+﻿Policy,Overlaps allowed?,Result,When to use it
+U — Unique,No,The one rule that matches,Default choice; forces you to cover every case exactly once
+F — First,Yes,"The first matching rule, top to bottom","Exceptions first, default last"
+A — Any,"Yes, if outputs are identical",The shared output,Several rules that mean the same thing
+P — Priority,Yes,The match whose output ranks highest in the output's value list,"A business ranking exists, such as ""strictest wins"""
+C — Collect,Yes,"All matching outputs, or their sum (C+), minimum (C<), maximum (C>), or count (C#)",Scorecards and lists

@@ -1,0 +1,4 @@
+﻿Setting,What it does,Velora's choice
+Column selection,Extract only the columns the SQL uses,"The template's column list per table, never"
+Row filter,Restrict rows at the source,"CDHDR/CDPOS: the object classes the template reads (VERKBELEG, LIEFERUNG, BELEG, FAKTBELEG, BANF, EINKBELEG); BSEG: customer lines (KOART = D) and the lines of their documents"
+Delta loading,"After the first full load, extract only new and changed rows, using a date field","VBAK by ERDAT, CDHDR by UDATE, BKPF by CPUDT, LIKP by ERDAT"

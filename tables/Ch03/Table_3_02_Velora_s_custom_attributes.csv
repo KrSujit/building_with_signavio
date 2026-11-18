@@ -1,0 +1,8 @@
+﻿Attribute,On,Data type,Purpose
+Process owner,BPMN diagram,"Dictionary link (role); the existing standard attribute, reused",Mandate P1 and approvals
+Process level,BPMN diagram,"Drop-down box (L1, L2, L3, L4)",Architecture and reports
+ISO 9001 relevant,BPMN diagram,Boolean,Mandate P2: which models need controlled approval
+Site applicability,BPMN diagram,"Drop-down box (All sites, Düsseldorf, Brno, Pune, Monterrey, Greenville)",Variants (Chapter 7)
+S/4HANA wave,BPMN diagram,"Drop-down box (Wave 1, Wave 2, Wave 3, Not in scope)",Mandate P4
+Next review date,BPMN diagram,Date,Periodic review (Chapter 10)
+Pain point,Task,Multi-line text,"Findings from workshops, later linked to Process Intelligence"

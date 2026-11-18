@@ -1,0 +1,9 @@
+﻿Tables,Content,Used for
+"VBAK, VBAP, VBEP","Sales order header, items, and schedule lines","Case, order creation, order value, customer, sales organization"
+"CDHDR, CDPOS",Change document header and items,"Price changes, quantity changes, credit block set and released"
+"LIKP, LIPS",Delivery header and items,"Delivery created, goods issue"
+"VBRK, VBRP",Billing header and items,"Invoice created, credit memo created"
+VBFA,Document flow,"Links orders, deliveries, and invoices; time of the goods issue"
+NAST,Output messages,Order confirmation and invoice sent
+"BKPF, BSEG",Accounting document header and line items,"Invoice posted, dunning level, clearing date, DSO"
+KNA1,Customer master,"Customer name, country (pseudonymized)"

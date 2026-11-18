@@ -1,0 +1,4 @@
+﻿Element,Shape,Meaning,Velora example
+Data object,Page with a folded corner,Information used or produced by a task in this process instance,"Sales order, delivery note, invoice"
+Data input / output,Data object with an arrow,Information that enters or leaves the process as a whole,"Customer purchase order (input), paid invoice (output)"
+Data store,Cylinder,Information that persists beyond the process instance,"Customer master, PriceBook"

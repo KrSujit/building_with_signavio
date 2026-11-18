@@ -1,0 +1,4 @@
+﻿Level,What a row is,How you get there,Example question
+Case level,One case,FROM THIS_PROCESS,How many orders per sales organization?
+Event level inside a case,One event of the current case,A subquery: (SELECT … ),When was this order first invoiced?
+Flattened event level,"One event, across all cases",FROM FLATTEN(THIS_PROCESS),How many releases did the Pune team do?

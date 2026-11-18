@@ -1,0 +1,7 @@
+﻿Shape,Meaning,Key attributes
+Organizational unit,A department or team,"Title, location, employee count, company affiliation, head, colour"
+Hierarchic organizational unit,A unit that contains further units,As organizational unit
+Position/Role,A job or role in a unit; becomes a Dictionary role,"Title, role description"
+Person,A named individual (check your works council rules first),Name
+Text note,An explanation,Text
+Connection,A reporting line from unit to unit or position,—

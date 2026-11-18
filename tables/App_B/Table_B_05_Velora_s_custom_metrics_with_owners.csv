@@ -1,0 +1,10 @@
+﻿Metric,Process,Unit,Variable,Owner,Used in
+Invoice correction rate,O2C,% of orders,—,Katrin Vogel,O2C – Control dashboard; Chapter 19 value case
+Late price change rate,O2C,% of orders,—,Katrin Vogel,O2C – Control
+Credit block rate,O2C,% of orders,—,Head of Credit,Credit dashboard; Hub entry page (Live Insight)
+Release without review,O2C,orders,—,Head of Credit,Credit dashboard
+Order to first invoice,O2C,days (median),—,Katrin Vogel,O2C – Control
+Goods issue to invoice,O2C,days (median),billing_target_days (1),Katrin Vogel,O2C – Control
+Invoice to payment,O2C,days (median),—,Finance,DSO tracking
+After-the-fact PO rate,P2P,% of PO items,—,Rui Santos,P2P – Control
+Late after-the-fact PO rate,P2P,% of PO items,"atf_tolerance_days (7, later 5)",Rui Santos,P2P – Control

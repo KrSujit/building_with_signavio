@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use these companion files, please cite the book."
+title: "Building with SAP Signavio: companion files"
+type: dataset
+authors:
+  - family-names: Kumar
+    given-names: Sujit
+version: 1.0.0
+license: CC-BY-4.0
+repository-code: "https://github.com/KrSujit/building_with_signavio"
+keywords:
+  - SAP Signavio
+  - business process management
+  - process mining
+  - BPMN
+  - DMN
+  - order to cash
+preferred-citation:
+  type: book
+  title: "Building with SAP Signavio"
+  authors:
+    - family-names: Kumar
+      given-names: Sujit
+  year: 2026

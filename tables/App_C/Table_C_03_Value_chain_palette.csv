@@ -1,0 +1,7 @@
+﻿Shape,Meaning,Key attributes
+Process,A process step shown as a chevron,"Title, description, colour, orientation, text direction, image"
+Collapsed process,A chevron with a diagram behind it; readers can click through,"As process, plus process link"
+Group,"A frame around related chevrons, such as an L1 process and its L2 groups",Title
+Text note,An explanation for readers,"Title (the note's text), colour"
+Process link,A connection showing that one process triggers another,—
+Association,A connection between a note and a shape,—

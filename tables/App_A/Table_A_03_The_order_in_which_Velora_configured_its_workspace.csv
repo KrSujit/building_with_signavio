@@ -1,0 +1,13 @@
+﻿Order,Task,Where,Chapter
+1,"Design folders, groups, and the rights matrix on paper",Spreadsheet (S03),3
+2,Change the default rights for new users,Explorer > Setup / User Management,3
+3,"Create user groups, then audiences",Users and Access,"3, 9"
+4,Define notation subsets,Setup > Define notations/attributes,3
+5,Create custom attributes and Dictionary categories,Setup > Define notations/attributes,3
+6,Activate modeling rules,Setup > Modeling rules,3
+7,Set the colour palette and Dictionary type matching,Modeling Preferences,3
+8,Set attribute visibility per audience,Attribute Visibility,9
+9,Create overlays,Attribute Overlays,"3, 9"
+10,"Set the home page, theme, and collaboration","Page Layout, Workspace",9
+11,"Map approval participants, expiration, and states",Process Model Approvals,10
+12,Record every change,Change log (S03),3

@@ -1,0 +1,5 @@
+﻿Settings,What you enter,Example question
+Costs,"Execution cost per activity, such as material or external fees (labour goes under resources)",What do automated releases save?
+Duration,"Execution time per task, optionally as a distribution",How long does an analyst review take?
+Frequency,"How often new cases start, adjusted by day and hour, and the probability of each gateway path",What if orders rise by 30%?
+Resources,"Working schedules and hourly cost per lane (role), and how many people each lane has",What if Pune has one analyst on leave?

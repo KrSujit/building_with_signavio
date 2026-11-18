@@ -1,0 +1,6 @@
+﻿Question,Velora's answer
+Which process?,"Order to cash, from sales order to cleared payment"
+Which systems?,SAP ECC only in the first iteration; Salesforce and the PriceBook tool later
+Which organizations?,Sales organizations DE01 (Düsseldorf) and CZ01 (Brno); Pune activities appear as users in ECC
+Which time window?,"Orders created in the last 13 months, with events up to today"
+Which case?,"Sales order (PD-039), with a second view on invoices for DSO"

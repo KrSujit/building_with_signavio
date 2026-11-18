@@ -1,0 +1,18 @@
+﻿Table,Field,Meaning,Example (order 4500108415)
+VBAK,"VBELN, VBTYP",Sales document number and category (C = order),"4500108415, C"
+VBAK,"ERDAT, ERZET, ERNAM","Created on, at, by","1769558400000, 25269000, USER_103"
+VBAP,POSNR,Item number,000010 … 000070
+VBEP,"ETENR, WMENG","Schedule line, ordered quantity","0001, 1.000 (item 60)"
+CDHDR,"OBJECTCLAS, OBJECTID, CHANGENR","Object type (VERKBELEG = sales document), document, change number","VERKBELEG, 4500108415, 0000009389"
+CDHDR,"USERNAME, UDATE, UTIME, TCODE","Who changed it, when, with which transaction","SYSTEM, 1769558400000, 51716000, VA01"
+CDPOS,"TABNAME, TABKEY, FNAME","Changed table, its full key, and field","VBUK, 1004500108415, CMGST"
+CDPOS,"VALUE_OLD, VALUE_NEW",Old and new value,"(empty), B"
+NAST,"KAPPL, OBJKY, KSCHL, VSTAT","Application, document, output type, status","V1, 4500108415, BA00, 1"
+LIPS,"VGBEL, VGPOS, VGTYP","Reference document, item, and category: the sales order item","4500108415, 000010, C"
+VBFA,"VBELV, VBELN, VBTYP_V, VBTYP_N","Preceding and subsequent document, their categories","0080003792 → 4900003792, J → R"
+VBRK,VBTYP,"Billing category: M invoice, O credit memo",M
+VBRP,"AUBEL, AUPOS",Sales order item the billing item belongs to,"4500108415, 000010"
+BKPF,"AWTYP, AWKEY",Source of the accounting document: billing document,"VBRK, 0090002938"
+BSEG,"KOART, BSCHL","Account type (D = customer) and posting key (01 invoice, 11 credit memo, 15 payment)","D, 01"
+BSEG,"AUGBL, AUGGJ",Clearing document and its fiscal year,"1600002585, 2026"
+VUSR02_HEADER,USTYP,"User type: A dialog, B system",SYSTEM → B

@@ -1,0 +1,5 @@
+﻿Measure,Value
+"Cases with only modelled activities, in the modelled order",48%
+Cases with at least one activity not in the model,"48% (quantity changes 16%, dunning notices 16%, Change price after credit release 13%, also price and delivery date changes and credit memos)"
+Cases skipping a model step,"5% (2,229 orders: Release credit block without Review blocked order, mostly phone releases at Brno)"
+Cases with steps in a different order,"1% (561 orders: invoice before goods issue, all of them drop shipments)"

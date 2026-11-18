@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Building with SAP Signavio - companion file. Fictional company Velora Group SE. Import in SAP Signavio Process Manager: Explorer > Import > BPMN 2.0 XML. -->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Defs_Check_customer_credit" targetNamespace="http://velora.example/bpmn" exporter="building_with_signavio" exporterVersion="1.0">
+<collaboration id="C_Check_customer_credit">
+  <participant id="P_Check_customer_credit" name="Velora" processRef="Check_customer_credit"/>
+</collaboration>
+<process id="Check_customer_credit" name="Check customer credit" isExecutable="false">
+  <documentation>L3, reusable. Called from Process customer order and Manage credit.</documentation>
+  <laneSet id="LS_Check_customer_credit">
+    <lane id="L_Check_customer_credit_0" name="SAP ECC"><flowNodeRef>s</flowNodeRef><flowNodeRef>t1</flowNodeRef><flowNodeRef>t2</flowNodeRef><flowNodeRef>g</flowNodeRef><flowNodeRef>t3</flowNodeRef><flowNodeRef>e1</flowNodeRef><flowNodeRef>e2</flowNodeRef></lane>
+  </laneSet>
+  <startEvent id="s" name="Credit check requested"><outgoing>F_1</outgoing></startEvent>
+  <task id="t1" name="Determine credit exposure"><incoming>F_1</incoming><outgoing>F_2</outgoing></task>
+  <task id="t2" name="Compare exposure with credit limit"><incoming>F_2</incoming><outgoing>F_3</outgoing></task>
+  <exclusiveGateway id="g" name="Within limit?"><incoming>F_3</incoming><outgoing>F_4</outgoing><outgoing>F_5</outgoing></exclusiveGateway>
+  <task id="t3" name="Set credit block"><incoming>F_5</incoming><outgoing>F_6</outgoing></task>
+  <endEvent id="e1" name="Credit OK"><incoming>F_4</incoming></endEvent>
+  <endEvent id="e2" name="Order blocked for credit"><incoming>F_6</incoming></endEvent>
+  <sequenceFlow id="F_1" name="" sourceRef="s" targetRef="t1"/>
+  <sequenceFlow id="F_2" name="" sourceRef="t1" targetRef="t2"/>
+  <sequenceFlow id="F_3" name="" sourceRef="t2" targetRef="g"/>
+  <sequenceFlow id="F_4" name="yes" sourceRef="g" targetRef="e1"/>
+  <sequenceFlow id="F_5" name="no" sourceRef="g" targetRef="t3"/>
+  <sequenceFlow id="F_6" name="" sourceRef="t3" targetRef="e2"/>
+</process>
+<bpmndi:BPMNDiagram id="D_Check_customer_credit" name="Check customer credit"><bpmndi:BPMNPlane id="PL_Check_customer_credit" bpmnElement="C_Check_customer_credit">
+<bpmndi:BPMNShape id="S_P_Check_customer_credit" bpmnElement="P_Check_customer_credit" isHorizontal="true"><dc:Bounds x="40" y="40" width="1135" height="220"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_Check_customer_credit_0" bpmnElement="L_Check_customer_credit_0" isHorizontal="true"><dc:Bounds x="70" y="40" width="1105" height="220"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_s" bpmnElement="s"><dc:Bounds x="175" y="135" width="30" height="30"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t1" bpmnElement="t1"><dc:Bounds x="295" y="110" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t2" bpmnElement="t2"><dc:Bounds x="460" y="110" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_g" bpmnElement="g" isMarkerVisible="true"><dc:Bounds x="665" y="130" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t3" bpmnElement="t3"><dc:Bounds x="790" y="150" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_e1" bpmnElement="e1"><dc:Bounds x="1001" y="96" width="28" height="28"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_e2" bpmnElement="e2"><dc:Bounds x="1001" y="176" width="28" height="28"/></bpmndi:BPMNShape>
+<bpmndi:BPMNEdge id="E_F_1" bpmnElement="F_1"><di:waypoint x="205" y="150"/><di:waypoint x="295" y="150"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_2" bpmnElement="F_2"><di:waypoint x="415" y="150"/><di:waypoint x="460" y="150"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_3" bpmnElement="F_3"><di:waypoint x="580" y="150"/><di:waypoint x="665" y="150"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_4" bpmnElement="F_4"><di:waypoint x="685" y="130"/><di:waypoint x="685" y="110"/><di:waypoint x="1001" y="110"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_5" bpmnElement="F_5"><di:waypoint x="685" y="170"/><di:waypoint x="685" y="190"/><di:waypoint x="790" y="190"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_6" bpmnElement="F_6"><di:waypoint x="910" y="190"/><di:waypoint x="1001" y="190"/></bpmndi:BPMNEdge>
+</bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</definitions>

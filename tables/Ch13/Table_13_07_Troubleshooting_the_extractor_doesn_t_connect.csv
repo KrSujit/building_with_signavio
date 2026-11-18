@@ -1,0 +1,4 @@
+﻿Symptom,Check first,Fix
+Never connects; the log reports no WebSocket connection to the server,Firewall and proxy: the workspace region's addresses,"Allow the right region. If the network is proven correct, download and configure the package again"
+"Connected by day, disconnected after log-off",Running in a console window?,Run it as a service (Step 4)
+"Odd errors after a release, for example with a proxy",Package version,"Update to the latest package, then debug"

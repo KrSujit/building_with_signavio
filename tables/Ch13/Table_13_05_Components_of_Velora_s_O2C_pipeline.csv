@@ -1,0 +1,5 @@
+﻿Component,Role,Velora O2C
+Connection,Access to the source system,ECC production via on-premises extractor
+Source data,What to extract,"The 14 tables of Table 13.3, filtered to DE01 and CZ01, 13-month window"
+Transformation configuration,Business logic and scripts,"O2C template for ECC, with Velora's changes"
+Process,Where the data is loaded,O2C – Velora (daily)

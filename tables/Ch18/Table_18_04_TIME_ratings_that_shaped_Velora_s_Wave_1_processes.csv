@@ -1,0 +1,6 @@
+﻿Application,TIME,"Why, and what it meant for processes"
+SAP ECC,Migrate,Supports every core process but runs on an ageing release; replaced by S/4HANA
+Salesforce Sales Cloud,Invest,"Healthy and valued; stays, so Lead to Cash keeps an interface to it"
+PriceBook,Migrate,"Needed, but pricing moves into S/4HANA standard in Wave 1; the to-be pricing steps no longer show PriceBook"
+Credit check database for Velora Capital customers,Eliminate,Its function moves to S/4HANA credit management; one process step disappears
+Brno trusted customer list (Excel),Not in LeanIX,"Never an application (Chapter 2); retired as gap L2C-027, not as a transformation"

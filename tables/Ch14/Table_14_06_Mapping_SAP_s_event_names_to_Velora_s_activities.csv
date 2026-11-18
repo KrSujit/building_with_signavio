@@ -1,0 +1,19 @@
+﻿SAP event (template or extension),Velora activity
+Create Sales Order,Create sales order
+Send Order Confirmation,Send order confirmation
+Change Sales Order Item Quantity,Change quantity
+Change Sales Order Req. deliv.date,Change requested delivery date
+Change Sales Order Item Price,"Change price, or Change price after credit release (rule PD-047)"
+Credit Check Failed,Block for credit
+Review Blocked Order,Review blocked order
+Document Released By Credit Representative,Release credit block
+Reject Sales Order Item,Reject order
+Create Delivery,Create delivery
+Execute Picking,Pick goods
+Post Goods Issue,Post goods issue
+Create Invoice,Create invoice
+Send Invoice,Send invoice
+Create Customer Credit Memo,Create credit memo
+Change Dunning Level,Send dunning notice
+Receive Incoming Payment,Receive incoming payment
+Clear Invoice,Clear payment

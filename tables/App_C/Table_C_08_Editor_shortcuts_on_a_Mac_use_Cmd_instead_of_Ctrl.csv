@@ -1,0 +1,12 @@
+﻿Action,Shortcut
+Open a diagram / preview it,Double-click the name in the Explorer / select it and press Space
+Save,Ctrl + S
+"Copy, paste, cut, delete","Ctrl + C, Ctrl + V, Ctrl + X, Del"
+"Undo, redo","Ctrl + Z, Ctrl + Y"
+"Zoom in, out, reset","Ctrl + +, Ctrl + -, Ctrl + 0"
+Full screen,F11 (again to exit)
+Resize in all directions / proportionally / without snapping,Hold Ctrl / Shift / Alt while dragging a handle
+Move without snapping or orientation lines,Hold Alt or Ctrl while moving
+Move along a horizontal or vertical line only,Hold Shift + Alt (or Shift + Ctrl) while moving
+Add or remove space between elements,"Ctrl + M, drag, then Ctrl + M again"
+Select all elements of the same type,"Select one or more, then Ctrl + I"

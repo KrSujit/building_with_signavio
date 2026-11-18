@@ -1,0 +1,13 @@
+﻿Metric,SiGNAL expression
+Number of cases,COUNT(case_id)
+Number of events per case (average),AVG((SELECT COUNT(event_name)))
+Average cycle time (days),AVG((SELECT LAST(end_time) - FIRST(end_time))) / 86400000
+Median cycle time (days),MEDIAN((SELECT LAST(end_time) - FIRST(end_time))) / 86400000
+80th percentile cycle time (days),PERCENTILE_CONT(0.8) WITHIN GROUP (ORDER BY (SELECT LAST(end_time) - FIRST(end_time))) / 86400000
+Percentage of cases executed in less than a given time,COUNT(case_id) FILTER (WHERE (SELECT LAST(end_time) - FIRST(end_time)) < <target_days>  DURATION '1day')  100.0 / COUNT(case_id)
+Percentage of cases with an activity,COUNT(case_id) FILTER (WHERE (SELECT BOOL_OR(event_name = <activity>)))  100.0 / COUNT(case_id)
+Rework rate (any activity more than once),COUNT(case_id) FILTER (WHERE (SELECT COUNT(event_name) > COUNT(DISTINCT event_name)))  100.0 / COUNT(case_id)
+Repetitions of one activity (average per case),AVG((SELECT COUNT(event_name) FILTER (WHERE event_name = <activity>)))
+Happy path share,COUNT(case_id) FILTER (WHERE event_name MATCHES (^ <first> -> … -> <last> $))  100.0 / COUNT(case_id)
+Cases ending with the expected activity,COUNT(case_id) FILTER (WHERE event_name MATCHES (<end_activity> $))  100.0 / COUNT(case_id)
+Time between two activities (median days),MEDIAN(((SELECT FIRST(end_time) FILTER (WHERE event_name = <to>)) - (SELECT FIRST(end_time) FILTER (WHERE event_name = <from>))) / 86400000)

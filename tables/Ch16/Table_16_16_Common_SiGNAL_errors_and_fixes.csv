@@ -1,0 +1,11 @@
+﻿What you wrote,What SiGNAL says,Do this instead
+SELECT  FROM THIS_PROCESS,Returning all columns with SELECT  is not supported,List the columns you need
+… GROUP BY customer_name HAVING COUNT(1) > 60,Syntax error near HAVING,"Aggregate in a subquery in FROM, filter in the outer WHERE"
+FROM (SELECT …) WHERE …,Syntax error near WHERE,Give the subquery an alias: FROM (SELECT …) AS t
+AVG(end_time - LAG(end_time) OVER (…)),Result of a window function cannot be used as an input to an aggregation,"Calculate the window function in a FLATTEN subquery, aggregate outside"
+LAG(end_time) at case level,Invalid arguments (hint: wrap in event-level subquery),Use FLATTEN(THIS_PROCESS)
+"PERCENTILE(x, 0.9)",Unknown function,PERCENTILE_CONT(0.9) WITHIN GROUP (ORDER BY x)
+HOUR(end_time),Unknown function,"DATE_PART('hour', end_time)"
+"DATE_PART('dow', end_time)",Invalid date part,"DATE_PART('day_of_week', end_time)"
+TIMESTAMP '2026-04-01 00:00:00',Syntax error,DATE '2026-04-01'
+WITH x AS (…) SELECT …,Syntax error near WITH,Use a subquery in FROM

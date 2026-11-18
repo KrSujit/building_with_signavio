@@ -1,0 +1,6 @@
+﻿,Business capability,Business process
+Describes,What the company can do,How the work flows
+Order,No sequence,Sequence from trigger to outcome
+Stability,Changes rarely,Changes with every improvement
+Typical tool,SAP LeanIX,SAP Signavio
+Velora example,Customer Credit Management,"Check customer credit (L3, in Order to Cash)"

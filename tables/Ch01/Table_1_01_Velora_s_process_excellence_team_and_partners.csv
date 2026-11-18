@@ -1,0 +1,10 @@
+﻿Role,Person,Responsibility
+Head of Process Excellence,Elena Kovač,"Owns the practice, the method, and mandates P1 and P5"
+Process modeller,Sofie Lindgren,"Models, conventions, Dictionary, model quality"
+Process analyst,Malik Haddad,"Process mining, SiGNAL, investigations"
+"Data engineer (Pune GCC, 50%)",Arjun Mehta,"Data extraction from SAP ECC, pipelines"
+O2C process owner,"Katrin Vogel, Head of Sales Operations","Order-to-cash model, KPIs, improvements"
+P2P process owner,"Rui Santos, Head of Procurement Operations","Procure-to-pay model, KPIs, improvements"
+Quality and compliance,Hannah Weiss,"Mandate P2, ISO 9001, approval rules"
+S/4HANA program,Jan de Vries,"Mandate P4, fit-to-standard decisions"
+Enterprise architecture,Ananya Rao,Link to SAP LeanIX capabilities and applications

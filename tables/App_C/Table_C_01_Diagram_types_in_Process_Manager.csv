@@ -1,0 +1,8 @@
+﻿Diagram type,Created from,Links to,Shown in the Hub as,Chapters
+Navigation map,Explorer New > Navigation map; Hub Create > Navigation Map,"Diagrams, folders, web links; Process Intelligence widgets",A clickable page; can be the entry model of the home page,"7, 9"
+Value chain,Explorer New > Value Chain; Hub Create > Value Chain; Establish link > Create a new diagram,Diagrams (process link),Clickable chevrons with a linked-diagram side panel,"7, 9"
+BPMN 2.0,Explorer New > Business Process Diagram (BPMN 2.0); Hub Create > BPMN,"Subprocesses, DMN decisions, Dictionary entries, documents","Process page with attributes, overlays, and element details",4–6
+QuickModel,Explorer New > QuickModel; Hub Create > QuickModel,Generates a BPMN diagram,As the generated BPMN diagram,4
+Organization chart,Explorer New > Organization Chart; Hub Create > Organisation Chart,Dictionary roles and units,Chart with unit and position details,4
+DMN,"From a business rule task, or New where enabled",Called from BPMN business rule tasks,Decision requirements diagram and decision tables,8
+Customer journey,Journey Modeler (separate licence),"BPMN processes, Process Intelligence metrics",Journey map with touchpoints and linked processes,9

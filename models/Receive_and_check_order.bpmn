@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Building with SAP Signavio - companion file. Fictional company Velora Group SE. Import in SAP Signavio Process Manager: Explorer > Import > BPMN 2.0 XML. -->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Defs_Receive_and_check_order" targetNamespace="http://velora.example/bpmn" exporter="building_with_signavio" exporterVersion="1.0">
+<collaboration id="C_Receive_and_check_order">
+  <participant id="P_Receive_and_check_order" name="Velora" processRef="Receive_and_check_order"/>
+</collaboration>
+<process id="Receive_and_check_order" name="Receive and check order" isExecutable="false">
+  <documentation>L3 as-is, Düsseldorf workshop Week 3 (Table 4.3). Owner: O2C Process Owner. Level: L3. S/4HANA wave: Wave 1.</documentation>
+  <laneSet id="LS_Receive_and_check_order">
+    <lane id="L_Receive_and_check_order_0" name="Order Desk Clerk"><flowNodeRef>s</flowNodeRef><flowNodeRef>t1</flowNodeRef><flowNodeRef>t2</flowNodeRef><flowNodeRef>g1</flowNodeRef><flowNodeRef>g2</flowNodeRef><flowNodeRef>t4</flowNodeRef><flowNodeRef>t5</flowNodeRef><flowNodeRef>t6</flowNodeRef><flowNodeRef>e</flowNodeRef></lane>
+    <lane id="L_Receive_and_check_order_1" name="Sales Representative"><flowNodeRef>t3</flowNodeRef></lane>
+  </laneSet>
+  <startEvent id="s" name="Customer purchase order received"><outgoing>F_1</outgoing></startEvent>
+  <task id="t1" name="Receive purchase order"><documentation>IT system: Outlook. Pain point: 40% of orders arrive as PDF by e-mail.</documentation><incoming>F_1</incoming><outgoing>F_2</outgoing></task>
+  <task id="t2" name="Check price against PriceBook"><documentation>IT system: PriceBook. Pain point: price differs on about 1 order in 5.</documentation><incoming>F_2</incoming><outgoing>F_3</outgoing></task>
+  <exclusiveGateway id="g1" name="Price matches PriceBook?"><incoming>F_3</incoming><outgoing>F_4</outgoing><outgoing>F_5</outgoing></exclusiveGateway>
+  <task id="t3" name="Clarify price with Sales"><documentation>IT systems: Outlook, Salesforce. Output: confirmed price. Pain point: waiting time 1-3 days.</documentation><incoming>F_5</incoming><outgoing>F_6</outgoing></task>
+  <exclusiveGateway id="g2" name=""><incoming>F_4</incoming><incoming>F_6</incoming><outgoing>F_7</outgoing></exclusiveGateway>
+  <task id="t4" name="Check configuration"><documentation>IT system: SAP ECC.</documentation><incoming>F_7</incoming><outgoing>F_8</outgoing></task>
+  <task id="t5" name="Create sales order"><documentation>IT system: SAP ECC (VA01). Pain point: manual entry, about 12 minutes per order.</documentation><incoming>F_8</incoming><outgoing>F_9</outgoing></task>
+  <task id="t6" name="Send order confirmation"><documentation>IT system: SAP ECC (output BA00). Pain point: sent before the credit check.</documentation><incoming>F_9</incoming><outgoing>F_10</outgoing></task>
+  <endEvent id="e" name="Order confirmed"><incoming>F_10</incoming></endEvent>
+  <sequenceFlow id="F_1" name="" sourceRef="s" targetRef="t1"/>
+  <sequenceFlow id="F_2" name="" sourceRef="t1" targetRef="t2"/>
+  <sequenceFlow id="F_3" name="" sourceRef="t2" targetRef="g1"/>
+  <sequenceFlow id="F_4" name="yes" sourceRef="g1" targetRef="g2"/>
+  <sequenceFlow id="F_5" name="no" sourceRef="g1" targetRef="t3"/>
+  <sequenceFlow id="F_6" name="" sourceRef="t3" targetRef="g2"/>
+  <sequenceFlow id="F_7" name="" sourceRef="g2" targetRef="t4"/>
+  <sequenceFlow id="F_8" name="" sourceRef="t4" targetRef="t5"/>
+  <sequenceFlow id="F_9" name="" sourceRef="t5" targetRef="t6"/>
+  <sequenceFlow id="F_10" name="" sourceRef="t6" targetRef="e"/>
+</process>
+<bpmndi:BPMNDiagram id="D_Receive_and_check_order" name="Receive and check order"><bpmndi:BPMNPlane id="PL_Receive_and_check_order" bpmnElement="C_Receive_and_check_order">
+<bpmndi:BPMNShape id="S_P_Receive_and_check_order" bpmnElement="P_Receive_and_check_order" isHorizontal="true"><dc:Bounds x="40" y="40" width="1795" height="300"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_Receive_and_check_order_0" bpmnElement="L_Receive_and_check_order_0" isHorizontal="true"><dc:Bounds x="70" y="40" width="1765" height="150"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_Receive_and_check_order_1" bpmnElement="L_Receive_and_check_order_1" isHorizontal="true"><dc:Bounds x="70" y="190" width="1765" height="150"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_s" bpmnElement="s"><dc:Bounds x="175" y="100" width="30" height="30"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t1" bpmnElement="t1"><dc:Bounds x="295" y="75" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t2" bpmnElement="t2"><dc:Bounds x="460" y="75" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_g1" bpmnElement="g1" isMarkerVisible="true"><dc:Bounds x="665" y="95" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t3" bpmnElement="t3"><dc:Bounds x="790" y="225" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_g2" bpmnElement="g2" isMarkerVisible="true"><dc:Bounds x="995" y="95" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t4" bpmnElement="t4"><dc:Bounds x="1120" y="75" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t5" bpmnElement="t5"><dc:Bounds x="1285" y="75" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t6" bpmnElement="t6"><dc:Bounds x="1450" y="75" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_e" bpmnElement="e"><dc:Bounds x="1661" y="101" width="28" height="28"/></bpmndi:BPMNShape>
+<bpmndi:BPMNEdge id="E_F_1" bpmnElement="F_1"><di:waypoint x="205" y="115"/><di:waypoint x="295" y="115"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_2" bpmnElement="F_2"><di:waypoint x="415" y="115"/><di:waypoint x="460" y="115"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_3" bpmnElement="F_3"><di:waypoint x="580" y="115"/><di:waypoint x="665" y="115"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_4" bpmnElement="F_4"><di:waypoint x="705" y="115"/><di:waypoint x="995" y="115"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_5" bpmnElement="F_5"><di:waypoint x="685" y="135"/><di:waypoint x="685" y="265"/><di:waypoint x="790" y="265"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_6" bpmnElement="F_6"><di:waypoint x="910" y="265"/><di:waypoint x="1015" y="265"/><di:waypoint x="1015" y="135"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_7" bpmnElement="F_7"><di:waypoint x="1035" y="115"/><di:waypoint x="1120" y="115"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_8" bpmnElement="F_8"><di:waypoint x="1240" y="115"/><di:waypoint x="1285" y="115"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_9" bpmnElement="F_9"><di:waypoint x="1405" y="115"/><di:waypoint x="1450" y="115"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_10" bpmnElement="F_10"><di:waypoint x="1570" y="115"/><di:waypoint x="1661" y="115"/></bpmndi:BPMNEdge>
+</bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</definitions>

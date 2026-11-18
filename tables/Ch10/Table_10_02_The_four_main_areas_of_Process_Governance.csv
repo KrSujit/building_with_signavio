@@ -1,0 +1,5 @@
+﻿Area,What it holds
+Tasks,"Your open work items, with filters and due dates"
+Cases,"Running and finished instances of workflows, with their history"
+Workflows,"The workflow definitions: trigger, actions, details, and versions; create new ones from scratch, from templates, or by importing BPMN"
+Analytics,"Throughput, durations, and bottlenecks of cases"

@@ -1,0 +1,13 @@
+﻿Group,Level 1 process,Scope,Process owner
+Management,Strategy to Plan,"Strategy, business planning, budgeting",CFO office
+Management,Govern and Assure,"Quality management (ISO 9001), risk, internal control, audit",Hannah Weiss
+Core,Lead to Order,"Marketing, opportunity, quotation, configuration, order capture","Head of Sales, Compression Systems"
+Core,Order to Cash,"Order processing, credit, delivery, billing, collections",Katrin Vogel
+Core,Plan to Produce,"Demand and supply planning, production, quality inspection",Head of Operations
+Core,Procure to Pay,"Requisition, sourcing, purchasing, receipt, invoice, payment",Rui Santos
+Core,Field Service to Resolution,"Service request, dispatch, repair, spare parts, service billing",Daniel Okafor
+Core,Lease to Return,"Lease application, contract, asset, collections, return",Velora Capital operations
+Support,Hire to Retire,"Recruiting, onboarding, payroll, development, offboarding",Head of HR
+Support,Record to Report,"Accounting, closing, consolidation, reporting",Group controller
+Support,Request to Resolve,IT service management,Head of IT Operations
+Support,Idea to Product,"Engineering, product lifecycle, change management",Head of Engineering

@@ -1,0 +1,6 @@
+﻿Velora activity,Where it lives in SAP,Velora collector
+Send order confirmation,"NAST, application V1, output type BA00, status 1",Velora 1 Send Order Confirmation
+Review blocked order,"STXH, text object VBBK, text ID ZCRV",Velora 2 Review Blocked Order
+Send invoice,"NAST, application V3, output type RD00, status 1",Velora 3 Send Invoice
+Receive incoming payment,"BKPF document type ZE (bank statement, FF_5), reference = invoice",Velora 4 Receive Incoming Payment
+(Clear payment across the year end),BSEG-AUGGJ,Fixed copy of 2. Clearing Events

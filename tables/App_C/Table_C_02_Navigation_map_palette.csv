@@ -1,0 +1,9 @@
+﻿Palette group,Shape,Use it for,Key attributes
+Text,Text,Headings and explanations,Text
+Text,Text link,A label that is also a link; place it inside a tile,"Text, link"
+Shapes,Rectangle,Tiles and bands,"Description, border colour, width, radius, style, background colour, opacity, flat design, link"
+Shapes,Triangle,Roofs and pointers (the process house roof),As rectangle
+Shapes,Ellipse,"Highlights, start points",As rectangle
+Shapes,"Arrow, line",Showing direction or grouping,"Colour, width"
+Live Insights,"Indicator, Traffic Light, Cockpit, Value, Trend, Progress bar, Ring chart, Sentiment",Showing a live Process Intelligence metric on the page,"Name, documentation, driving widget (widget ID), additional widgets"
+Image management,Your own SVG images (up to 50 kB),"Logos, icons, pictograms",Link

@@ -1,0 +1,4 @@
+﻿Result,Orders,Meaning
+Table and analyst agree,41,Rules reflect practice
+"Table says review, analyst released",6,"Rule too strict? Five were medium-risk customers just over 10%; threshold kept, reviewed after one month"
+"Table says release, analyst reviewed",3,Two had disputes not recorded in SAP ECC (data quality issue); one was a judgment call

@@ -1,0 +1,5 @@
+﻿Tab,Shows,Velora example
+Process flows,"Step-by-step SAP process flows with volumes, completion rates, blockers, and times between steps",Sales order item to billing document
+Performance indicators,Preconfigured indicators per process area,Sales order items with billing block; open overdue PO items
+Correction recommendations,"Quick fixes to the current system, such as configuration or master data changes",Unused payment terms; blocked items without reason
+Innovation recommendations,Longer-term improvements through SAP applications and technologies,Predictive credit management; automated invoice matching

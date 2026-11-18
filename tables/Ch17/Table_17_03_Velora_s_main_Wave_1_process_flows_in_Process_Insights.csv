@@ -1,0 +1,4 @@
+﻿"Flow (Velora ECC, last 12 months)",Items,Completion,Main blockers
+Sales order item to billing,"186,000",88%,"Credit block, incomplete delivery, billing block set manually"
+Purchase order item to invoice clearing,"312,000",71%,"No goods receipt, invoice blocked for payment, PO without requisition"
+Purchase requisition to purchase order,"204,000",64%,"Requisition open with no follow-up, PO created without reference"

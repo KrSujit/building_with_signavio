@@ -1,0 +1,12 @@
+﻿Attribute,Value,From
+SalesOrderItemName,Impeller spare,VBAP-ARKTX
+SalesOrderItemCategory,TAN - Standard Item,VBAP-PSTYV + TVAPT
+SalesOrderItemNetValue,1667.25,"VBAP-NETWR, adjusted with TCURX"
+SalesOrderItemNetValueInUSD,1702.86,VBAP-NETWR × TCURR rate for the order date
+SalesOrderItemMaterialGroup,Spare parts,VBAP-MATKL + T023T
+SalesOrderItemPlant,DE10 - Velora plant Düsseldorf,VBAP-WERKS + T001W
+SalesOrderDocumentType,Standard Order,VBAK-AUART + TVAKT
+SalesOrderSalesOrganization,Velora Pumpen GmbH,VBAK-VKORG + TVKOT
+SalesOrderCustomerCompany,Iberia Utilities s.r.o.,KNA1-NAME1
+SalesOrderTradingPartner,External,KNA1-VBUND
+SalesOrderPlannedShipmentDate,2026-02-03,VBEP-WADAT

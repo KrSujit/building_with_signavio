@@ -1,0 +1,4 @@
+﻿Column,Meaning,Velora example
+Case ID,Which journey the event belongs to,Sales order number 4500183327
+Activity,What happened,Release credit block
+Timestamp,When it happened,2026-02-11 14:32:08

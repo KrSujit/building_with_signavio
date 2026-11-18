@@ -1,0 +1,8 @@
+﻿Attribute,Level,Why,Velora example
+customer_segment,Case,An order has one customer,Distributor
+order_value_eur,Case,One value per order,"7,604.01"
+sales_organization,Case,One sales org per order,DE01
+delivering_plant,Case,The plant on the order items,DE10
+plant,Event,"Credit steps happen in Pune, the rest at the delivering plant","IN10 for Release credit block, DE10 for Create delivery"
+user_code,Event,Every step has its own user,User_302
+it_system,Event,Different steps can come from different systems,SAP ECC

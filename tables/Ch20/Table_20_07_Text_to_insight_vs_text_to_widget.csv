@@ -1,0 +1,6 @@
+﻿,Text to insight,Text to widget
+What you get,A written answer in a side panel,A chart or table on the dashboard
+Saved?,"No, a one-time answer with follow-ups","Yes, as a widget labelled Created with AI"
+Best for,A question now,Something the team will look at every week
+Velora example,"""Which step adds the most waiting time at Brno last month?""","""Invoice-to-payment time by month for Brno as a bar chart"""
+What to check,The counting unit and filters,"The generated query, which you can open and edit"

@@ -1,0 +1,4 @@
+﻿Concept,What it is
+Metric Library,"SAP Signavio's catalogue of predefined metrics, some universal and some specific to processes. Some work immediately; others need variables or edits"
+Metric collection,The metrics assigned to one process. It contains Average cycle time by default; you add metrics from the library or create your own
+Variable,"A named value used in metrics, so that a threshold can change in one place"

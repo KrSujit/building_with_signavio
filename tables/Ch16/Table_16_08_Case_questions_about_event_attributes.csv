@@ -1,0 +1,4 @@
+﻿Question,SiGNAL,Result
+How many Pune events does each order have?,"SELECT (SELECT COUNT(1) FILTER (WHERE plant = 'IN10')) AS pune_events, COUNT(case_id) FROM THIS_PROCESS","0: 29,565 orders; 1: 2,206; 2: 9,178; 3: 92; 4: 259"
+"Share of orders that Pune touched, by sales org","SELECT sales_organization, AVG(CASE WHEN (SELECT BOOL_OR(plant = 'IN10')) THEN 1 ELSE 0 END)  100 FROM THIS_PROCESS","CZ01 40.4%, DE01 19.2%"
+"The plant of the first event, as a case value","SELECT (SELECT FIRST(plant)) AS order_plant, COUNT(case_id) FROM THIS_PROCESS","CZ10 17,886; DE10 23,414"

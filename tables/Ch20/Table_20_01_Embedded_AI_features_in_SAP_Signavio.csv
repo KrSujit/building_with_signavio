@@ -1,0 +1,8 @@
+﻿Feature,Product,What it does,Velora user
+"Text to process, image to process",Process Manager,Turns a text description or a sketch into an editable BPMN diagram,"Sofie Lindgren, modellers"
+Process recommender,Collaboration Hub,Finds best-practice process models from a description of the need,Process owners
+Performance indicators recommender,Collaboration Hub,Suggests best-practice KPIs from a description of what to measure,"Process owners, analysts"
+Text to insight,Process Intelligence,Answers natural-language questions about process data,Business users
+Text to widget,Process Intelligence,Builds a widget from a description,"Analysts, business users"
+Insights description generator,Process Transformation Manager,Writes plain-language descriptions of findings,Analysts
+Initiative builder,Process Transformation Manager,Turns strategy documents into proposed initiatives,Transformation leads

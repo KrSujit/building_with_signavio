@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Building with SAP Signavio - companion file S08. Fictional company Velora Group SE. Velora Credit Policy version 1 incl. the rule added in Section 8.7. Import: Explorer > Import > DMN. -->
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" id="Decide_credit_release_defs" name="Decide credit release" namespace="http://velora.example/dmn">
+  <inputData id="in_dpd" name="Days past due (average, 12 months)"><variable id="v_in_dpd" name="Days past due (average, 12 months)" typeRef="number"/></inputData>
+  <inputData id="in_years" name="Years as customer"><variable id="v_in_years" name="Years as customer" typeRef="number"/></inputData>
+  <inputData id="in_over" name="Amount over credit limit (%)"><variable id="v_in_over" name="Amount over credit limit (%)" typeRef="number"/></inputData>
+  <inputData id="in_ins" name="Credit insured"><variable id="v_in_ins" name="Credit insured" typeRef="boolean"/></inputData>
+  <inputData id="in_disp" name="Open disputes"><variable id="v_in_disp" name="Open disputes" typeRef="boolean"/></inputData>
+  <knowledgeSource id="ks_policy" name="Velora Credit Policy"><description>Owner: Head of Credit, with the CFO. Version 1.</description></knowledgeSource>
+  <knowledgeSource id="ks_ins" name="Credit insurer limit"/>
+  <decision id="d_risk" name="Determine customer risk class"><variable id="v_risk" name="Risk class" typeRef="string"/>
+    <informationRequirement id="ir1"><requiredInput href="#in_dpd"/></informationRequirement>
+    <informationRequirement id="ir2"><requiredInput href="#in_years"/></informationRequirement>
+    <decisionTable id="dt_risk" hitPolicy="UNIQUE">
+      <input id="i_r1" label="Days past due (average, 12 months)"><inputExpression id="ie_r1" typeRef="number"><text>Days past due (average, 12 months)</text></inputExpression></input>
+      <input id="i_r2" label="Years as customer"><inputExpression id="ie_r2" typeRef="number"><text>Years as customer</text></inputExpression></input>
+      <output id="o_r" label="Risk class" name="Risk class" typeRef="string"><outputValues><text>"Low","Medium","High"</text></outputValues></output>
+      <rule id="r_risk_1"><inputEntry id="r1a"><text>&lt;= 5</text></inputEntry><inputEntry id="r1b"><text>&gt;= 3</text></inputEntry><outputEntry id="r1o"><text>"Low"</text></outputEntry></rule>
+      <rule id="r_risk_2"><inputEntry id="r2a"><text>&lt;= 5</text></inputEntry><inputEntry id="r2b"><text>&lt; 3</text></inputEntry><outputEntry id="r2o"><text>"Medium"</text></outputEntry></rule>
+      <rule id="r_risk_3"><inputEntry id="r3a"><text>(5..20]</text></inputEntry><inputEntry id="r3b"><text>-</text></inputEntry><outputEntry id="r3o"><text>"Medium"</text></outputEntry></rule>
+      <rule id="r_risk_4"><inputEntry id="r4a"><text>&gt; 20</text></inputEntry><inputEntry id="r4b"><text>-</text></inputEntry><outputEntry id="r4o"><text>"High"</text></outputEntry></rule>
+    </decisionTable>
+  </decision>
+  <decision id="d_rel" name="Decide credit release"><variable id="v_rel" name="Release decision" typeRef="string"/>
+    <informationRequirement id="ir3"><requiredDecision href="#d_risk"/></informationRequirement>
+    <informationRequirement id="ir4"><requiredInput href="#in_over"/></informationRequirement>
+    <informationRequirement id="ir5"><requiredInput href="#in_ins"/></informationRequirement>
+    <informationRequirement id="ir6"><requiredInput href="#in_disp"/></informationRequirement>
+    <authorityRequirement id="ar1"><requiredAuthority href="#ks_policy"/></authorityRequirement>
+    <authorityRequirement id="ar2"><requiredAuthority href="#ks_ins"/></authorityRequirement>
+    <decisionTable id="dt_rel" hitPolicy="UNIQUE">
+      <input id="i_c1" label="Risk class"><inputExpression id="ie_c1" typeRef="string"><text>Risk class</text></inputExpression><inputValues><text>"Low","Medium","High"</text></inputValues></input>
+      <input id="i_c2" label="Amount over credit limit (%)"><inputExpression id="ie_c2" typeRef="number"><text>Amount over credit limit (%)</text></inputExpression></input>
+      <input id="i_c3" label="Credit insured"><inputExpression id="ie_c3" typeRef="boolean"><text>Credit insured</text></inputExpression></input>
+      <input id="i_c4" label="Open disputes"><inputExpression id="ie_c4" typeRef="boolean"><text>Open disputes</text></inputExpression></input>
+      <output id="o_rel" label="Release decision" name="Release decision" typeRef="string"><outputValues><text>"Release","Release with notice to Sales","Review by analyst","Reject"</text></outputValues></output>
+      <rule id="r_rel_1"><description>Old limits are the main cause of blocks</description><inputEntry id="c1a"><text>"Low"</text></inputEntry><inputEntry id="c1b"><text>&lt;= 20</text></inputEntry><inputEntry id="c1c"><text>-</text></inputEntry><inputEntry id="c1d"><text>false</text></inputEntry><outputEntry id="c1o"><text>"Release"</text></outputEntry></rule>
+      <rule id="r_rel_2"><description>Insurer covers the risk</description><inputEntry id="c2a"><text>"Low"</text></inputEntry><inputEntry id="c2b"><text>&gt; 20</text></inputEntry><inputEntry id="c2c"><text>true</text></inputEntry><inputEntry id="c2d"><text>false</text></inputEntry><outputEntry id="c2o"><text>"Release with notice to Sales"</text></outputEntry></rule>
+      <rule id="r_rel_3"><inputEntry id="c3a"><text>"Low"</text></inputEntry><inputEntry id="c3b"><text>&gt; 20</text></inputEntry><inputEntry id="c3c"><text>false</text></inputEntry><inputEntry id="c3d"><text>-</text></inputEntry><outputEntry id="c3o"><text>"Review by analyst"</text></outputEntry></rule>
+      <rule id="r_rel_4"><description>Disputes first</description><inputEntry id="c4a"><text>"Low"</text></inputEntry><inputEntry id="c4b"><text>&lt;= 20</text></inputEntry><inputEntry id="c4c"><text>-</text></inputEntry><inputEntry id="c4d"><text>true</text></inputEntry><outputEntry id="c4o"><text>"Review by analyst"</text></outputEntry></rule>
+      <rule id="r_rel_5"><inputEntry id="c5a"><text>"Medium"</text></inputEntry><inputEntry id="c5b"><text>&lt;= 10</text></inputEntry><inputEntry id="c5c"><text>-</text></inputEntry><inputEntry id="c5d"><text>false</text></inputEntry><outputEntry id="c5o"><text>"Release with notice to Sales"</text></outputEntry></rule>
+      <rule id="r_rel_6"><inputEntry id="c6a"><text>"Medium"</text></inputEntry><inputEntry id="c6b"><text>&gt; 10</text></inputEntry><inputEntry id="c6c"><text>-</text></inputEntry><inputEntry id="c6d"><text>-</text></inputEntry><outputEntry id="c6o"><text>"Review by analyst"</text></outputEntry></rule>
+      <rule id="r_rel_7"><inputEntry id="c7a"><text>"Medium"</text></inputEntry><inputEntry id="c7b"><text>&lt;= 10</text></inputEntry><inputEntry id="c7c"><text>-</text></inputEntry><inputEntry id="c7d"><text>true</text></inputEntry><outputEntry id="c7o"><text>"Review by analyst"</text></outputEntry></rule>
+      <rule id="r_rel_8"><description>Analyst may reject</description><inputEntry id="c8a"><text>"High"</text></inputEntry><inputEntry id="c8b"><text>-</text></inputEntry><inputEntry id="c8c"><text>-</text></inputEntry><inputEntry id="c8d"><text>-</text></inputEntry><outputEntry id="c8o"><text>"Review by analyst"</text></outputEntry></rule>
+      <rule id="r_rel_9"><description>Disputes first (rule added after the gap check, Section 8.7)</description><inputEntry id="c9a"><text>"Low"</text></inputEntry><inputEntry id="c9b"><text>&gt; 20</text></inputEntry><inputEntry id="c9c"><text>true</text></inputEntry><inputEntry id="c9d"><text>true</text></inputEntry><outputEntry id="c9o"><text>"Review by analyst"</text></outputEntry></rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI><dmndi:DMNDiagram id="DRD_1" name="Decide credit release">
+    <dmndi:DMNShape id="S_d_rel" dmnElementRef="d_rel"><dc:Bounds x="380" y="40" width="200" height="70"/></dmndi:DMNShape>
+    <dmndi:DMNShape id="S_d_risk" dmnElementRef="d_risk"><dc:Bounds x="140" y="220" width="200" height="70"/></dmndi:DMNShape>
+    <dmndi:DMNShape id="S_in_dpd" dmnElementRef="in_dpd"><dc:Bounds x="20" y="420" width="200" height="56"/></dmndi:DMNShape>
+    <dmndi:DMNShape id="S_in_years" dmnElementRef="in_years"><dc:Bounds x="250" y="420" width="180" height="56"/></dmndi:DMNShape>
+    <dmndi:DMNShape id="S_in_over" dmnElementRef="in_over"><dc:Bounds x="500" y="330" width="200" height="56"/></dmndi:DMNShape>
+    <dmndi:DMNShape id="S_in_ins" dmnElementRef="in_ins"><dc:Bounds x="720" y="330" width="180" height="56"/></dmndi:DMNShape>
+    <dmndi:DMNShape id="S_in_disp" dmnElementRef="in_disp"><dc:Bounds x="720" y="220" width="180" height="56"/></dmndi:DMNShape>
+    <dmndi:DMNShape id="S_ks_policy" dmnElementRef="ks_policy"><dc:Bounds x="780" y="50" width="210" height="60"/></dmndi:DMNShape>
+    <dmndi:DMNShape id="S_ks_ins" dmnElementRef="ks_ins"><dc:Bounds x="30" y="120" width="210" height="60"/></dmndi:DMNShape>
+    <dmndi:DMNEdge id="E_ir1" dmnElementRef="ir1"><di:waypoint x="120" y="420"/><di:waypoint x="240" y="290"/></dmndi:DMNEdge>
+    <dmndi:DMNEdge id="E_ir2" dmnElementRef="ir2"><di:waypoint x="340" y="420"/><di:waypoint x="240" y="290"/></dmndi:DMNEdge>
+    <dmndi:DMNEdge id="E_ir3" dmnElementRef="ir3"><di:waypoint x="240" y="220"/><di:waypoint x="480" y="110"/></dmndi:DMNEdge>
+    <dmndi:DMNEdge id="E_ir4" dmnElementRef="ir4"><di:waypoint x="600" y="330"/><di:waypoint x="480" y="110"/></dmndi:DMNEdge>
+    <dmndi:DMNEdge id="E_ir5" dmnElementRef="ir5"><di:waypoint x="810" y="330"/><di:waypoint x="480" y="110"/></dmndi:DMNEdge>
+    <dmndi:DMNEdge id="E_ir6" dmnElementRef="ir6"><di:waypoint x="720" y="248"/><di:waypoint x="580" y="100"/></dmndi:DMNEdge>
+    <dmndi:DMNEdge id="E_ar1" dmnElementRef="ar1"><di:waypoint x="780" y="80"/><di:waypoint x="580" y="75"/></dmndi:DMNEdge>
+    <dmndi:DMNEdge id="E_ar2" dmnElementRef="ar2"><di:waypoint x="240" y="150"/><di:waypoint x="380" y="75"/></dmndi:DMNEdge>
+  </dmndi:DMNDiagram></dmndi:DMNDI>
+</definitions>

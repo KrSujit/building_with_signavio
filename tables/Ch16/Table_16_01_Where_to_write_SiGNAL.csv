@@ -1,0 +1,4 @@
+﻿Where,How to open it,Use it for
+A chart or table widget in SiGNAL mode,Dashboard → Create Widget → Charts and Tables → switch the editor to SiGNAL,Answers you want to keep on a dashboard
+The metric editor,Process → Metrics → create or open a metric → SiGNAL tab,Definitions that many widgets reuse
+Text to Widget (AI),Dashboard → Create Widget → Text to Widget,A first draft from a question in plain language; always read the generated SiGNAL before you trust it

@@ -1,0 +1,6 @@
+﻿Marker,Start,Intermediate,End,Velora example
+None (empty),Process starts (no specific trigger),A milestone reached,Path ends,Order confirmed
+Message (envelope),A message arrives,Waiting for or sending a message,A message is sent at the end,Customer purchase order received
+Timer (clock),At a time or interval,Waiting for a time or duration,—,48 hours passed
+Error (lightning),—,Catching an error on an activity's boundary,An error ends the path,Credit check failed
+Escalation (arrow up),—,An escalation is raised or caught,Escalation at the end,Escalate to Head of Credit

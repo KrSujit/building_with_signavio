@@ -1,0 +1,10 @@
+﻿Column,Example
+Gap ID,L2C-027
+Process (L3),Manage credit for sales orders
+Description,Brno releases trusted customers by phone without review
+Evidence,31% of Brno credit blocks released manually; median wait three days (Chapter 12)
+Class,Change the business
+Decision,Retire the trusted list and phone releases; use the credit policy rules from the DMN model (Chapter 8) in S/4HANA credit management
+Owner,"Katrin Vogel, Tomas Novak"
+Linked model,Release credit block - standard (to-be)
+Status,"Decided (design authority, Month 6)"

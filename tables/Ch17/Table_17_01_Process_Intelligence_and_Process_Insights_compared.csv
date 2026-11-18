@@ -1,0 +1,7 @@
+﻿,Process Intelligence,Process Insights
+Purpose,"Deep, flexible process mining for any process and system","Fast, preconfigured analytics for SAP ERP processes, with recommended actions"
+Data,"Any source, through pipelines you build (Chapter 13)","SAP ERP (ECC or S/4HANA), collected through plug-ins in the ERP"
+Content,"What you build: investigations, metrics, SiGNAL","Prebuilt process flows, performance indicators, recommendations, benchmarks"
+Effort to first results,Weeks per process,Days for many processes at once
+Strength,"Your own questions, your own case definitions, non-SAP systems","SAP's standard view, benchmarks against peers, links to SAP fixes and innovations"
+Velora's use,O2C and P2P deep dives (Part IV),"ECC usage and readiness for S/4HANA, across all Wave 1 processes"

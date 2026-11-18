@@ -1,0 +1,9 @@
+﻿Setting,What it controls,Velora's choice
+Home page and entry model,"Per audience: title, welcome message, the entry model, Process Intelligence monitoring widgets, recently viewed, and favourites",Velora Process House navigation map as entry model for every audience
+Audiences,"Group-based views of the Hub with their own entry page, theme, and settings","General settings for all employees; Velora Group (process owners, key users, modellers); Plant Brno (Czech welcome text, Brno variant highlighted); Key Users for the review in Weeks 10 and 11"
+Attribute groups,How attributes are grouped and sorted on Hub pages,Not used yet (see the warning below)
+Attribute visibility,"Per audience, notation set, and level: each attribute Visible, Visible if set, or Invisible","Show owner, level, site applicability, last published; hide S/4HANA wave and internal pain points from general readers"
+Overlays,"Per audience: Enabled and Active (on by default), Enabled (available), or Disabled",IT systems on by default; pain points Enabled and Active only for the Velora Group audience
+Theme,"Logo, colours, welcome message","Velora purple, welcome text with a link to a two-minute video"
+Comments,Whether readers can comment,"On, for all employees"
+"Read confirmation, process rating",Governance features in the Hub,Read confirmation on (Chapter 10); rating off for now

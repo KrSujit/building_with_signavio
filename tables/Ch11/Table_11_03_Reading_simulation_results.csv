@@ -1,0 +1,5 @@
+﻿Result,What it means
+Costs,Fixed activity costs plus resource costs; they vary when durations vary
+Total cycle time,"Execution time plus waiting time. If it's longer than the simulated period, cases are piling up"
+Resource consumption,Working hours each lane needs
+Bottlenecks,Lanes and activities where cases wait; shown with markers on the activities

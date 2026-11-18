@@ -1,0 +1,4 @@
+﻿Property,What it means,Velora example
+Link and reuse,Diagram elements link to an entry instead of carrying their own text,Every lane Order Desk Clerk links to the same role entry
+Central maintenance,Changing the entry changes every linked element,"When SAP ECC is renamed SAP ECC (retiring Wave 1), all models show it"
+Where-used list,Each entry shows every diagram that uses it,PriceBook is used in 9 models across 3 level 2 groups

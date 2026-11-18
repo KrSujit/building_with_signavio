@@ -1,0 +1,6 @@
+﻿Area,What must be in place,Who provides it,Velora
+Server,"A dedicated Linux or Windows server in the source system's network, sized as on SAP's server requirements page (SAP confirms 20 GB of RAM is enough); write access to the extractor's temporary folder",IT infrastructure,"Linux VM in the Düsseldorf data centre, next to PE1"
+Runtime,"The Java version stated for the package release you download; for SAP sources, an SAP Java Connector library that matches the server's operating system and processor. Docker is a documented alternative","IT infrastructure, Basis",Installed by the Basis team in Pune
+Network,Outbound HTTPS (WebSocket) to the addresses of the region where the workspace runs; proxy details; a route from the server to the source host,Network team,Rule for the workspace's region; corporate proxy
+Process Intelligence,Data management features enabled; an administrator who may manage extractors and connections,SAP Signavio administrator,Arjun
+Source system,A technical user with read-only access to the tables in scope,SAP Basis,SIGNAVIO_RFC on PE1

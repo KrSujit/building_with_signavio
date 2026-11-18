@@ -1,0 +1,4 @@
+﻿Border,Position,Meaning
+Thin single line,Start event,The process starts when this happens
+Double line,Intermediate event,"The process waits for this, or reacts to it, during the flow"
+Thick line,End event,The process (or this path) ends with this result

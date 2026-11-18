@@ -1,0 +1,5 @@
+﻿Report,Where,Shows
+Governance report,Process Manager > Reporting,"Diagrams by publishing state and type (a tile opens the matching search), user activity as page visits in the Hub, comment usage, and Dictionary items by state and category. Covers up to 50,000 diagrams; generating it can take up to an hour with the tab open"
+User/Group Assignment,"Process Manager > Reporting, and Hub > Reports",An Excel list of users with their direct and nested group memberships
+Process Model Dashboard,Hub > Reports,"Published models, the most viewed models, and models with open comments"
+Usage Management Dashboard,Hub > Reports,Assigned licences and unique visitors over time

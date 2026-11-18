@@ -1,0 +1,6 @@
+﻿Type,Use,Velora example
+Boolean,Yes/no facts,Credit insured; open disputes
+Number,Values and ranges,"Amount over credit limit (%), days past due"
+Enumeration,A fixed list of values,"Risk class: Low, Medium, High"
+Text,Free text (avoid where possible),—
+Date,Points in time,Limit last reviewed on

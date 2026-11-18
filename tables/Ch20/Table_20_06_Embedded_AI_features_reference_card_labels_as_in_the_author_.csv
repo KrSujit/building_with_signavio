@@ -1,0 +1,9 @@
+﻿Feature,Where you start it,You give it,You get back,Check before use
+Text to process,"Process Manager, create a process with AI, Text tab","A written description (roles, trigger, steps, decisions, ends)",An editable BPMN draft plus proposed Dictionary links,"Conventions, Dictionary links, missing exceptions"
+Image to process,"Same dialog, Image tab",A photo of a whiteboard sketch or an exported diagram,An editable BPMN draft,"Flow direction, merged or split tasks, lanes"
+Process recommender,Process AI panel in the Hub,A process name or need in plain language,"Ranked models from your workspace, then SAP best practices",Fit to your process; save into a folder you can write to
+Performance indicators recommender,Hub (also Process Insights),What you want to measure,Ranked best-practice KPIs and process performance indicators,Whether the data to compute it exists
+Text to insight,"Process Intelligence dashboard, Auto-insights panel",A question,"A written answer, not saved","Counting unit, filters, cause vs. correlation"
+Text to widget,"Process Intelligence dashboard, create a widget with AI","A description of measure, dimension, chart","Widget options with a preview, saved as a widget",The generated SiGNAL query
+Insights description generator,"Process Transformation Manager, an insight",A finding,A structured plain-language summary,"Facts, strength of wording, audience"
+Initiative builder,"Hub, Initiatives, AI-assisted discovery","A strategy document or pasted text, optionally a data source","Challenges with source passages, then draft initiatives","Duplicates, vagueness, owners"

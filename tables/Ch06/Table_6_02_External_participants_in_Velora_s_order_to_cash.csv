@@ -1,0 +1,5 @@
+﻿Participant,Sends to Velora,Receives from Velora
+Customer,"Purchase order, change requests, payment, dispute","Order confirmation, delivery note, invoice, dunning letter"
+Carrier,"Pickup confirmation, proof of delivery","Transport order, shipping documents"
+Bank,Electronic bank statement with incoming payments,—
+Credit insurer,Credit limit decision for insured customers,Limit request

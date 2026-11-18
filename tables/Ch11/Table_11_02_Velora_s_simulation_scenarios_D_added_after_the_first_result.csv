@@ -1,0 +1,5 @@
+﻿Scenario,Changes,Lanes and resources
+A — As-is,Brno model from Chapter 5,"1 Pune analyst for Brno, 4 order desk clerks"
+B — Two more clerks,As-is model,"1 analyst, 6 clerks"
+C — Credit policy,"Proposal from Chapter 8: rows 1, 2, and 5 released automatically (about 70% of blocks)","1 analyst, 4 clerks"
+D — Credit policy and redeployment,As C,"1 analyst, 3 clerks (one moved to order entry)"

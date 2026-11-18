@@ -1,0 +1,5 @@
+﻿Role (Velora),SAP Signavio,SAP LeanIX,SAP Cloud ALM,Tricentis
+"Process owners (Katrin Vogel, Rui Santos) with Elena's team","Lead: to-be models, gap decisions, approvals",Input: process-to-capability links,Input: test scope; sign-off at quality gates,Reviews results
+"Enterprise architecture (Ananya Rao, Lukas Brandt)",Input: application and capability names,"Lead: inventory, TIME, initiatives, target",Input: discovered systems,—
+Program office (Jan de Vries),Reads model status,Input: synchronized initiative,"Lead: plan, gates, Readiness Check",Reads progress
+Integrator test manager,Input: variants to cover,—,"Lead: test cases, plans, results",Lead: automation build and runs

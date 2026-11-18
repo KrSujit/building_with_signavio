@@ -1,0 +1,5 @@
+﻿Recommendation,Type,Velora decision
+Review blocked billing items without block reason,Correction,Apply in ECC now (Month 6)
+Clean up unused payment terms,Correction,Apply in S/4HANA design (14 keys)
+Automated credit management with scoring,Innovation,Input to Wave 1 to-be design; aligns with the DMN credit policy (Chapter 8)
+Automated invoice matching,Innovation,Input to Source to Pay design; evaluate after Wave 1

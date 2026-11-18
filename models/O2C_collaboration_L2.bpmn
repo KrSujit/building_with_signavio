@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Building with SAP Signavio - companion file. Fictional company Velora Group SE. Import in SAP Signavio Process Manager: Explorer > Import > BPMN 2.0 XML. -->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Defs_O2C_collaboration_L2" targetNamespace="http://velora.example/bpmn" exporter="building_with_signavio" exporterVersion="1.0">
+<collaboration id="C_O2C_collaboration_L2">
+  <participant id="P_O2C_collaboration_L2" name="Velora" processRef="O2C_collaboration_L2"/>
+  <participant id="P_Customer" name="Customer"/>
+  <participant id="P_Carrier" name="Carrier"/>
+  <participant id="P_Bank" name="Bank"/>
+  <messageFlow id="M_1" name="Purchase order" sourceRef="P_Customer" targetRef="p1"/>
+  <messageFlow id="M_2" name="Order confirmation" sourceRef="p1" targetRef="P_Customer"/>
+  <messageFlow id="M_3" name="Invoice" sourceRef="p4" targetRef="P_Customer"/>
+  <messageFlow id="M_4" name="Transport order" sourceRef="p3" targetRef="P_Carrier"/>
+  <messageFlow id="M_5" name="Proof of delivery" sourceRef="P_Carrier" targetRef="p3"/>
+  <messageFlow id="M_6" name="Bank statement" sourceRef="P_Bank" targetRef="p5"/>
+</collaboration>
+<process id="O2C_collaboration_L2" name="Order to Cash - collaboration (L2)" isExecutable="false">
+  <documentation>L2. Owner: O2C Process Owner. Each collapsed subprocess links to its L3 model.</documentation>
+  <laneSet id="LS_O2C_collaboration_L2">
+    <lane id="L_O2C_collaboration_L2_0" name="Sales Operations"><flowNodeRef>s</flowNodeRef><flowNodeRef>p1</flowNodeRef></lane>
+    <lane id="L_O2C_collaboration_L2_1" name="Credit Management"><flowNodeRef>p2</flowNodeRef></lane>
+    <lane id="L_O2C_collaboration_L2_2" name="Logistics"><flowNodeRef>p3</flowNodeRef></lane>
+    <lane id="L_O2C_collaboration_L2_3" name="Billing"><flowNodeRef>p4</flowNodeRef></lane>
+    <lane id="L_O2C_collaboration_L2_4" name="Accounts Receivable"><flowNodeRef>p5</flowNodeRef><flowNodeRef>e</flowNodeRef></lane>
+  </laneSet>
+  <startEvent id="s" name="Customer purchase order received"><outgoing>F_1</outgoing></startEvent>
+  <subProcess id="p1" name="Process customer order"><incoming>F_1</incoming><outgoing>F_2</outgoing></subProcess>
+  <subProcess id="p2" name="Manage credit"><documentation>End events of the L3 model: Credit released, Order rejected.</documentation><incoming>F_2</incoming><outgoing>F_3</outgoing></subProcess>
+  <subProcess id="p3" name="Deliver goods"><incoming>F_3</incoming><outgoing>F_4</outgoing></subProcess>
+  <subProcess id="p4" name="Bill customer"><incoming>F_4</incoming><outgoing>F_5</outgoing></subProcess>
+  <subProcess id="p5" name="Manage receivables"><incoming>F_5</incoming><outgoing>F_6</outgoing></subProcess>
+  <endEvent id="e" name="Payment received"><incoming>F_6</incoming></endEvent>
+  <sequenceFlow id="F_1" name="" sourceRef="s" targetRef="p1"/>
+  <sequenceFlow id="F_2" name="" sourceRef="p1" targetRef="p2"/>
+  <sequenceFlow id="F_3" name="" sourceRef="p2" targetRef="p3"/>
+  <sequenceFlow id="F_4" name="" sourceRef="p3" targetRef="p4"/>
+  <sequenceFlow id="F_5" name="" sourceRef="p4" targetRef="p5"/>
+  <sequenceFlow id="F_6" name="" sourceRef="p5" targetRef="e"/>
+</process>
+<bpmndi:BPMNDiagram id="D_O2C_collaboration_L2" name="Order to Cash - collaboration (L2)"><bpmndi:BPMNPlane id="PL_O2C_collaboration_L2" bpmnElement="C_O2C_collaboration_L2">
+<bpmndi:BPMNShape id="S_P_O2C_collaboration_L2" bpmnElement="P_O2C_collaboration_L2" isHorizontal="true"><dc:Bounds x="40" y="170" width="1300" height="750"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_O2C_collaboration_L2_0" bpmnElement="L_O2C_collaboration_L2_0" isHorizontal="true"><dc:Bounds x="70" y="170" width="1270" height="150"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_O2C_collaboration_L2_1" bpmnElement="L_O2C_collaboration_L2_1" isHorizontal="true"><dc:Bounds x="70" y="320" width="1270" height="150"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_O2C_collaboration_L2_2" bpmnElement="L_O2C_collaboration_L2_2" isHorizontal="true"><dc:Bounds x="70" y="470" width="1270" height="150"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_O2C_collaboration_L2_3" bpmnElement="L_O2C_collaboration_L2_3" isHorizontal="true"><dc:Bounds x="70" y="620" width="1270" height="150"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_O2C_collaboration_L2_4" bpmnElement="L_O2C_collaboration_L2_4" isHorizontal="true"><dc:Bounds x="70" y="770" width="1270" height="150"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_P_Customer" bpmnElement="P_Customer" isHorizontal="true"><dc:Bounds x="40" y="40" width="1300" height="90"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_P_Carrier" bpmnElement="P_Carrier" isHorizontal="true"><dc:Bounds x="40" y="960" width="1300" height="90"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_P_Bank" bpmnElement="P_Bank" isHorizontal="true"><dc:Bounds x="40" y="1090" width="1300" height="90"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_s" bpmnElement="s"><dc:Bounds x="175" y="230" width="30" height="30"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_p1" bpmnElement="p1" isExpanded="false"><dc:Bounds x="295" y="205" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_p2" bpmnElement="p2" isExpanded="false"><dc:Bounds x="460" y="355" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_p3" bpmnElement="p3" isExpanded="false"><dc:Bounds x="625" y="505" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_p4" bpmnElement="p4" isExpanded="false"><dc:Bounds x="790" y="655" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_p5" bpmnElement="p5" isExpanded="false"><dc:Bounds x="955" y="805" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_e" bpmnElement="e"><dc:Bounds x="1166" y="831" width="28" height="28"/></bpmndi:BPMNShape>
+<bpmndi:BPMNEdge id="E_F_1" bpmnElement="F_1"><di:waypoint x="205" y="245"/><di:waypoint x="295" y="245"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_2" bpmnElement="F_2"><di:waypoint x="415" y="245"/><di:waypoint x="520" y="245"/><di:waypoint x="520" y="355"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_3" bpmnElement="F_3"><di:waypoint x="580" y="395"/><di:waypoint x="685" y="395"/><di:waypoint x="685" y="505"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_4" bpmnElement="F_4"><di:waypoint x="745" y="545"/><di:waypoint x="850" y="545"/><di:waypoint x="850" y="655"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_5" bpmnElement="F_5"><di:waypoint x="910" y="695"/><di:waypoint x="1015" y="695"/><di:waypoint x="1015" y="805"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_6" bpmnElement="F_6"><di:waypoint x="1075" y="845"/><di:waypoint x="1166" y="845"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_M_1" bpmnElement="M_1"><di:waypoint x="325" y="130"/><di:waypoint x="325" y="205"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_M_2" bpmnElement="M_2"><di:waypoint x="385" y="205"/><di:waypoint x="385" y="130"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_M_3" bpmnElement="M_3"><di:waypoint x="880" y="655"/><di:waypoint x="880" y="130"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_M_4" bpmnElement="M_4"><di:waypoint x="655" y="585"/><di:waypoint x="655" y="960"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_M_5" bpmnElement="M_5"><di:waypoint x="715" y="960"/><di:waypoint x="715" y="585"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_M_6" bpmnElement="M_6"><di:waypoint x="1045" y="1090"/><di:waypoint x="1045" y="885"/></bpmndi:BPMNEdge>
+</bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</definitions>

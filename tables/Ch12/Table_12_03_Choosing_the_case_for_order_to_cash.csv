@@ -1,0 +1,4 @@
+﻿Case ID,Good for,Weak for
+Sales order,"Credit blocks, order changes, end-to-end time to invoice","Partial deliveries, line-level price changes"
+Sales order line,"Price changes, partial deliveries, delivery performance","Credit (blocked at order level), number of cases (4.5× more)"
+Invoice,"Payment and collection, DSO",Everything before billing

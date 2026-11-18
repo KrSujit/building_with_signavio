@@ -1,0 +1,16 @@
+﻿Report,Family,Output,Select,Options
+Process documentation (PDF),Documentation,PDF,Diagrams and folders,"Template, title, organization, author, date, version, linked subprocesses"
+Process documentation (Word),Documentation,.docx,Diagrams and folders,As PDF
+Governance report,Documentation,Spreadsheet,Diagrams and folders,—
+Process cost analysis,Analysis,Spreadsheet,Diagrams,Use resource consumption attributes; include subprocesses
+Resource consumption analysis,Analysis,Spreadsheet,Diagrams,Include subprocesses
+Modeling conventions,Maintenance,"Spreadsheet (Overview, Legend)",Diagrams and folders; filter,Convention set
+Responsibility assignment matrix / RACI,Matrix,Spreadsheet,Diagrams and folders,Merged cells; .XLS
+Responsibility handovers matrix,Matrix,Spreadsheet (three sheets),Diagrams and folders,Merged cells; .XLS
+Documents usage matrix,Matrix,Spreadsheet,Diagrams and folders,Merged cells; .XLS
+IT system usage matrix (by diagrams),Matrix,Spreadsheet,Diagrams and folders,Merged cells; .XLS
+IT system usage matrix (by roles),Matrix,Spreadsheet,Diagrams and folders,Merged cells; .XLS
+Process characteristics with element details,Maintenance,Spreadsheet,Individual diagrams only,—
+Process model metrics,Maintenance,Spreadsheet,Diagrams and folders,—
+Risks & controls report,Maintenance,Spreadsheet,Diagrams and folders,—
+User/Group assignment,Maintenance,Spreadsheet,Folders,—

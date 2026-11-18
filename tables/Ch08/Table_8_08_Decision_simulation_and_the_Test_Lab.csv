@@ -1,0 +1,5 @@
+﻿,Decision simulation,Test Lab
+Question,What does the model say for this case?,Does the model still do what we intend?
+How it works,"Enter input values, see which rules match and what the output is","Save test cases with their expected outputs, run them all at once"
+When,"While you build the table, to explore cases and sub-decision dependencies","After every rule change, as a regression test"
+What it finds,"Cases no rule covers, unexpected matches","Any case whose result changed, compared with earlier runs"

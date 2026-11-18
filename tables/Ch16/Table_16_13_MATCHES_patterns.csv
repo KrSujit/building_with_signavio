@@ -1,0 +1,8 @@
+﻿Pattern,Meaning
+'A' -> 'B',A directly followed by B
+'A' ~> 'B',"A followed by B, directly or later"
+^ 'A',The case starts with A
+'B' $,The case ends with B
+('A' | 'B'),A or B
+'A',A occurs somewhere
+NOT event_name MATCHES (…),The pattern doesn't occur

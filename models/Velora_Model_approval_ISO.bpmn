@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Building with SAP Signavio - companion file. Fictional company Velora Group SE. Import in SAP Signavio Process Manager: Explorer > Import > BPMN 2.0 XML. -->
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Defs_Velora_Model_approval_ISO" targetNamespace="http://velora.example/bpmn" exporter="building_with_signavio" exporterVersion="1.0">
+<collaboration id="C_Velora_Model_approval_ISO">
+  <participant id="P_Velora_Model_approval_ISO" name="Velora" processRef="Velora_Model_approval_ISO"/>
+</collaboration>
+<process id="Velora_Model_approval_ISO" name="Velora - Model approval (ISO)" isExecutable="false">
+  <documentation>Trigger: Process Manager &gt; Signavio approval. Approvers come from the model (Assign using a role: Process owner). Reminder after 3 working days; escalation to the L1 process owner after 5 working days (PD-033).</documentation>
+  <laneSet id="LS_Velora_Model_approval_ISO">
+    <lane id="L_Velora_Model_approval_ISO_0" name="Modeller (author)"><flowNodeRef>s</flowNodeRef><flowNodeRef>r1</flowNodeRef><flowNodeRef>r1b</flowNodeRef><flowNodeRef>r2</flowNodeRef><flowNodeRef>r3</flowNodeRef><flowNodeRef>e2</flowNodeRef></lane>
+    <lane id="L_Velora_Model_approval_ISO_1" name="Process owner"><flowNodeRef>t2</flowNodeRef><flowNodeRef>g2</flowNodeRef><flowNodeRef>g3</flowNodeRef><flowNodeRef>t6</flowNodeRef><flowNodeRef>e3</flowNodeRef><flowNodeRef>b1</flowNodeRef></lane>
+    <lane id="L_Velora_Model_approval_ISO_2" name="Quality reviewer"><flowNodeRef>t3</flowNodeRef><flowNodeRef>g4</flowNodeRef></lane>
+    <lane id="L_Velora_Model_approval_ISO_3" name="Process Governance (system)"><flowNodeRef>t1</flowNodeRef><flowNodeRef>g1</flowNodeRef><flowNodeRef>gj</flowNodeRef><flowNodeRef>t4</flowNodeRef><flowNodeRef>t5</flowNodeRef><flowNodeRef>e1</flowNodeRef></lane>
+  </laneSet>
+  <startEvent id="s" name="Approval requested with reason for change"><outgoing>F_1</outgoing></startEvent>
+  <task id="t1" name="Run model guideline check"><incoming>F_1</incoming><outgoing>F_2</outgoing></task>
+  <exclusiveGateway id="g1" name="Conventions met?"><incoming>F_2</incoming><outgoing>F_3</outgoing><outgoing>F_4</outgoing></exclusiveGateway>
+  <task id="t2" name="Approve model (process owner)"><incoming>F_4</incoming><outgoing>F_5</outgoing></task>
+  <exclusiveGateway id="g2" name="Approved?"><incoming>F_5</incoming><outgoing>F_6</outgoing><outgoing>F_7</outgoing></exclusiveGateway>
+  <exclusiveGateway id="g3" name="ISO 9001 relevant?"><incoming>F_6</incoming><outgoing>F_8</outgoing><outgoing>F_9</outgoing></exclusiveGateway>
+  <task id="t3" name="Approve model (quality review)"><incoming>F_8</incoming><outgoing>F_10</outgoing></task>
+  <exclusiveGateway id="g4" name="Approved?"><incoming>F_10</incoming><outgoing>F_11</outgoing><outgoing>F_12</outgoing></exclusiveGateway>
+  <exclusiveGateway id="gj" name=""><incoming>F_9</incoming><incoming>F_11</incoming><outgoing>F_13</outgoing></exclusiveGateway>
+  <task id="t4" name="Set model state to Approved"><documentation>Publish to the Hub; set Next review date to +12 months; request read confirmations.</documentation><incoming>F_13</incoming><outgoing>F_14</outgoing></task>
+  <task id="t5" name="E-mail author: approved"><incoming>F_14</incoming><outgoing>F_15</outgoing></task>
+  <endEvent id="e1" name="Model approved"><incoming>F_15</incoming></endEvent>
+  <exclusiveGateway id="r1" name=""><incoming>F_3</incoming><incoming>F_7</incoming><outgoing>F_16</outgoing></exclusiveGateway>
+  <exclusiveGateway id="r1b" name=""><incoming>F_12</incoming><incoming>F_16</incoming><outgoing>F_17</outgoing></exclusiveGateway>
+  <task id="r2" name="E-mail author with comment or error list"><incoming>F_17</incoming><outgoing>F_18</outgoing></task>
+  <task id="r3" name="Set model state to rejected"><incoming>F_18</incoming><outgoing>F_19</outgoing></task>
+  <endEvent id="e2" name="Model rejected"><incoming>F_19</incoming></endEvent>
+  <task id="t6" name="Remind; escalate to L1 owner after 5 days"><incoming>F_20</incoming><outgoing>F_21</outgoing></task>
+  <endEvent id="e3" name="Reminder sent"><incoming>F_21</incoming></endEvent>
+  <boundaryEvent id="b1" name="3 working days" attachedToRef="t2" cancelActivity="false"><outgoing>F_20</outgoing><timerEventDefinition id="TD_b1"/></boundaryEvent>
+  <sequenceFlow id="F_1" name="" sourceRef="s" targetRef="t1"/>
+  <sequenceFlow id="F_2" name="" sourceRef="t1" targetRef="g1"/>
+  <sequenceFlow id="F_3" name="no" sourceRef="g1" targetRef="r1"/>
+  <sequenceFlow id="F_4" name="yes" sourceRef="g1" targetRef="t2"/>
+  <sequenceFlow id="F_5" name="" sourceRef="t2" targetRef="g2"/>
+  <sequenceFlow id="F_6" name="yes" sourceRef="g2" targetRef="g3"/>
+  <sequenceFlow id="F_7" name="no" sourceRef="g2" targetRef="r1"/>
+  <sequenceFlow id="F_8" name="yes" sourceRef="g3" targetRef="t3"/>
+  <sequenceFlow id="F_9" name="no" sourceRef="g3" targetRef="gj"/>
+  <sequenceFlow id="F_10" name="" sourceRef="t3" targetRef="g4"/>
+  <sequenceFlow id="F_11" name="yes" sourceRef="g4" targetRef="gj"/>
+  <sequenceFlow id="F_12" name="no" sourceRef="g4" targetRef="r1b"/>
+  <sequenceFlow id="F_13" name="" sourceRef="gj" targetRef="t4"/>
+  <sequenceFlow id="F_14" name="" sourceRef="t4" targetRef="t5"/>
+  <sequenceFlow id="F_15" name="" sourceRef="t5" targetRef="e1"/>
+  <sequenceFlow id="F_16" name="" sourceRef="r1" targetRef="r1b"/>
+  <sequenceFlow id="F_17" name="" sourceRef="r1b" targetRef="r2"/>
+  <sequenceFlow id="F_18" name="" sourceRef="r2" targetRef="r3"/>
+  <sequenceFlow id="F_19" name="" sourceRef="r3" targetRef="e2"/>
+  <sequenceFlow id="F_20" name="" sourceRef="b1" targetRef="t6"/>
+  <sequenceFlow id="F_21" name="" sourceRef="t6" targetRef="e3"/>
+</process>
+<bpmndi:BPMNDiagram id="D_Velora_Model_approval_ISO" name="Velora - Model approval (ISO)"><bpmndi:BPMNPlane id="PL_Velora_Model_approval_ISO" bpmnElement="C_Velora_Model_approval_ISO">
+<bpmndi:BPMNShape id="S_P_Velora_Model_approval_ISO" bpmnElement="P_Velora_Model_approval_ISO" isHorizontal="true"><dc:Bounds x="40" y="40" width="2290" height="800"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_Velora_Model_approval_ISO_0" bpmnElement="L_Velora_Model_approval_ISO_0" isHorizontal="true"><dc:Bounds x="70" y="40" width="2260" height="200"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_Velora_Model_approval_ISO_1" bpmnElement="L_Velora_Model_approval_ISO_1" isHorizontal="true"><dc:Bounds x="70" y="240" width="2260" height="200"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_Velora_Model_approval_ISO_2" bpmnElement="L_Velora_Model_approval_ISO_2" isHorizontal="true"><dc:Bounds x="70" y="440" width="2260" height="200"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_L_Velora_Model_approval_ISO_3" bpmnElement="L_Velora_Model_approval_ISO_3" isHorizontal="true"><dc:Bounds x="70" y="640" width="2260" height="200"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_s" bpmnElement="s"><dc:Bounds x="175" y="125" width="30" height="30"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t1" bpmnElement="t1"><dc:Bounds x="295" y="700" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_g1" bpmnElement="g1" isMarkerVisible="true"><dc:Bounds x="500" y="720" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t2" bpmnElement="t2"><dc:Bounds x="625" y="300" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_g2" bpmnElement="g2" isMarkerVisible="true"><dc:Bounds x="995" y="320" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_g3" bpmnElement="g3" isMarkerVisible="true"><dc:Bounds x="1160" y="320" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t3" bpmnElement="t3"><dc:Bounds x="1285" y="500" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_g4" bpmnElement="g4" isMarkerVisible="true"><dc:Bounds x="1490" y="520" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_gj" bpmnElement="gj" isMarkerVisible="true"><dc:Bounds x="1655" y="720" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t4" bpmnElement="t4"><dc:Bounds x="1780" y="700" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t5" bpmnElement="t5"><dc:Bounds x="1945" y="700" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_e1" bpmnElement="e1"><dc:Bounds x="2156" y="726" width="28" height="28"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_r1" bpmnElement="r1" isMarkerVisible="true"><dc:Bounds x="995" y="120" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_r1b" bpmnElement="r1b" isMarkerVisible="true"><dc:Bounds x="1490" y="120" width="40" height="40"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_r2" bpmnElement="r2"><dc:Bounds x="1615" y="100" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_r3" bpmnElement="r3"><dc:Bounds x="1780" y="100" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_e2" bpmnElement="e2"><dc:Bounds x="1991" y="126" width="28" height="28"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_t6" bpmnElement="t6"><dc:Bounds x="790" y="350" width="120" height="80"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_e3" bpmnElement="e3"><dc:Bounds x="1001" y="376" width="28" height="28"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="S_b1" bpmnElement="b1"><dc:Bounds x="705" y="365" width="30" height="30"/></bpmndi:BPMNShape>
+<bpmndi:BPMNEdge id="E_F_1" bpmnElement="F_1"><di:waypoint x="205" y="140"/><di:waypoint x="355" y="140"/><di:waypoint x="355" y="700"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_2" bpmnElement="F_2"><di:waypoint x="415" y="740"/><di:waypoint x="500" y="740"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_3" bpmnElement="F_3"><di:waypoint x="520" y="720"/><di:waypoint x="520" y="140"/><di:waypoint x="995" y="140"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_4" bpmnElement="F_4"><di:waypoint x="540" y="740"/><di:waypoint x="685" y="740"/><di:waypoint x="685" y="380"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_5" bpmnElement="F_5"><di:waypoint x="745" y="340"/><di:waypoint x="995" y="340"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_6" bpmnElement="F_6"><di:waypoint x="1035" y="340"/><di:waypoint x="1160" y="340"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_7" bpmnElement="F_7"><di:waypoint x="1015" y="320"/><di:waypoint x="1015" y="160"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_8" bpmnElement="F_8"><di:waypoint x="1180" y="360"/><di:waypoint x="1180" y="540"/><di:waypoint x="1285" y="540"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_9" bpmnElement="F_9"><di:waypoint x="1200" y="340"/><di:waypoint x="1675" y="340"/><di:waypoint x="1675" y="720"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_10" bpmnElement="F_10"><di:waypoint x="1405" y="540"/><di:waypoint x="1490" y="540"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_11" bpmnElement="F_11"><di:waypoint x="1510" y="560"/><di:waypoint x="1510" y="740"/><di:waypoint x="1655" y="740"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_12" bpmnElement="F_12"><di:waypoint x="1510" y="520"/><di:waypoint x="1510" y="160"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_13" bpmnElement="F_13"><di:waypoint x="1695" y="740"/><di:waypoint x="1780" y="740"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_14" bpmnElement="F_14"><di:waypoint x="1900" y="740"/><di:waypoint x="1945" y="740"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_15" bpmnElement="F_15"><di:waypoint x="2065" y="740"/><di:waypoint x="2156" y="740"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_16" bpmnElement="F_16"><di:waypoint x="1035" y="140"/><di:waypoint x="1490" y="140"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_17" bpmnElement="F_17"><di:waypoint x="1530" y="140"/><di:waypoint x="1615" y="140"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_18" bpmnElement="F_18"><di:waypoint x="1735" y="140"/><di:waypoint x="1780" y="140"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_19" bpmnElement="F_19"><di:waypoint x="1900" y="140"/><di:waypoint x="1991" y="140"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_20" bpmnElement="F_20"><di:waypoint x="720" y="395"/><di:waypoint x="720" y="390"/><di:waypoint x="790" y="390"/></bpmndi:BPMNEdge>
+<bpmndi:BPMNEdge id="E_F_21" bpmnElement="F_21"><di:waypoint x="910" y="390"/><di:waypoint x="1001" y="390"/></bpmndi:BPMNEdge>
+</bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</definitions>

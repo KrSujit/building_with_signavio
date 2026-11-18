@@ -1,0 +1,4 @@
+﻿Action,What it does,Velora use
+User task,"One person, or one of several candidates, does a piece of work",Process owner approves the model
+Multi-user task,"Several people do the same task, in parallel or in sequence, and results are collected",Two quality reviewers check ISO-relevant models
+Send e-mail,"Sends a message, with case data inserted as variables",Notify the author of approval or rejection

@@ -1,0 +1,7 @@
+﻿Area,Decisions,Examples
+Foundation and conventions,PD-001 to PD-011,"Process house, levels, modeling conventions, workspace structure"
+Modeling and design,PD-012 to PD-027,"BPMN subset, structure rules, Dictionary, variants, credit policy in DMN"
+Publishing and governance,PD-028 to PD-038,"Hub audiences, approval workflow, read confirmations, simulation and reports"
+Mining and analysis,PD-039 to PD-056,"Case definition, pipelines, pseudonymization, hypotheses, metrics"
+Transformation,PD-057 to PD-068,"Process Insights use, fit to standard, site variants, value rules"
+AI and year two,PD-069 to PD-075,"AI rules, agents, year-two governance"

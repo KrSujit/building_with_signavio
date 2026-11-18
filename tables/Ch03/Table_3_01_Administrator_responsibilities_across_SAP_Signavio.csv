@@ -1,0 +1,5 @@
+﻿Product,What the administrator controls
+Process Manager,"Folder structure, user groups and access rights, workspace settings, languages, notation subsets, custom attributes, modeling conventions, Dictionary categories"
+Collaboration Hub,"Central user management, licences, audiences, home page and theme, which attributes readers see, overlays, read confirmation and process rating"
+Process Governance,"Workflow users and groups, who may create workflows, connectors and integrations, approval workflows"
+Process Intelligence,"Data connections, process data pipelines, access to processes and investigations (Chapter 13)"
